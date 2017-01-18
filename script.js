@@ -1,3 +1,4 @@
 function myFunction() {
-   document.getElementById('output').innerHTML = 'hello'
+   var value = document.getElementById('myTextarea').value;
+   document.getElementById('output').innerHTML = value;
 }

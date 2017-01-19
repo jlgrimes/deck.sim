@@ -6,10 +6,12 @@ function print()
 
 function parse()
 {
+   document.getElementById("sometext").innerHTML = "derp";
+   /*
    var sometextClone = "";
    var lines = $('deckIn').val().split('\n');
    for(var i = 0;i < lines.length;i++){
       sometextClone += lines[i] + " ";
    }
-   document.getElementById("sometext").innerHTML = "derp";
+   */
 }

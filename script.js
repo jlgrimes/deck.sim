@@ -7,7 +7,7 @@ function print()
 function parse()
 {  
    
-   var sometextClone = "";
+   var sometextClone = "a";
    
    var lines = $('deckIn').val().split('\n');
    for(var i = 0;i < lines.length;i++){

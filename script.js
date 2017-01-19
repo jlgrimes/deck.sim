@@ -6,8 +6,10 @@ function print()
 
 function parse()
 {
+   var sometextClone = "";
    var lines = $('textarea').val().split('\n');
    for(var i = 0;i < lines.length;i++){
-    document.getElementById("sometext").innerHTML += lines[i] + " ";
+      sometextClone += lines[i] + " ";
    }
+   document.getElementById("p1").innerHTML = sometextClone;
 }

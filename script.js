@@ -11,5 +11,5 @@ function parse()
    for(var i = 0;i < lines.length;i++){
       sometextClone += lines[i] + " ";
    }
-   document.getElementById("p1").innerHTML = sometextClone;
+   document.getElementById("sometext").innerHTML = sometextClone;
 }

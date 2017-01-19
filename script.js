@@ -7,12 +7,12 @@ function print()
 function parse()
 {  
    
-   var sometextClone = "sometextclone";
-   /*
+   var sometextClone = "";
+   
    var lines = $('deckIn').val().split('\n');
    for(var i = 0;i < lines.length;i++){
       sometextClone += lines[i] + " ";
    }
-   */
+   
    document.getElementById("sometext").innerHTML = sometextClone;
 }

@@ -8,7 +8,6 @@ function parse()
 {
    var lines = $('textarea').val().split('\n');
    for(var i = 0;i < lines.length;i++){
-    sometext = "";
-    sometext += lines[i] + " ";
+    document.getElementById("sometext").innerHTML += lines[i] + " ";
    }
 }

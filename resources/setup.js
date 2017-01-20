@@ -1,3 +1,22 @@
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 function parse()
 {  
    var lines = document.getElementById('deckIn').value.split('\n');
@@ -22,19 +41,32 @@ function parse()
    	  		target = "energy"
    	  		badLine = true;
    	  }
+   	  else if (lines[i].includes("Total Cards"))
+   	  {
+   	  		badLine = true;
+   	  }
    	  else
    	  	badLine = false;
 
       if (lines[i][0] != '*' && lines[i] != "" && !badLine)
       {
-      	if (target == "pokemon")
-      		pokemon.push(lines[i]);
-      	else if (target == "trainers")
-      		trainers.push(lines[i]);
-      	else if (target == "energy")
-      		energy.push(lines[i]);
+      	var num = lines[i][0];
+      	var j;
+      	lines[i] = lines[i].slice(2);
+
+      	for (j = 0; j < num; j++)
+      	{
+      		deck.push(lines[i]);
+
+      		if (target == "pokemon")
+      			pokemon.push(lines[i]);
+      		else if (target == "trainers")
+      			trainers.push(lines[i]);
+      		else if (target == "energy")
+      			energy.push(lines[i]);
+      	}
 	  }
    }
-   
-   document.getElementById("sometext").innerHTML = pokemon;
+   deck = shuffle(deck);
+   document.getElementById("sometext").innerHTML = deck;
 }

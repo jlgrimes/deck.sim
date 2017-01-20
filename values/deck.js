@@ -12,4 +12,3 @@ card.prototype.recallType = function(){
 }
 
 var deck = [];
-made it 

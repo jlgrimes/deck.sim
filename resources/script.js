@@ -1,20 +1,12 @@
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+function play()
+{
+  document.getElementById("hand").innerHTML = "";
+  deck = [];
+  hand = [];
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
+  parse();
+  deck = shuffle(deck);
+  deal(7);
 }
 
 function parse()
@@ -70,6 +62,44 @@ function parse()
       	}
 	  }
    }
-   deck = shuffle(deck);
-   document.getElementById("sometext").innerHTML = deck[i].recallName() + " " + deck[i].recallType();
+   //document.getElementById("sometext").innerHTML = deck[i].recallName() + " " + deck[i].recallType();
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function deal(num) {
+  var i;
+  var initialHandLength = hand.length;
+
+  for (i = 0; i < num; i++)
+  {
+    var pos = i + initialHandLength;
+    var para = document.createElement("card" + pos);
+    var node = document.createTextNode("card" + pos + ": " + deck[deck.length - 1].recallName());
+    para.appendChild(node);
+
+    var element = document.getElementById("hand");
+    element.appendChild(para);
+
+    hand.push(deck[deck.length - 1]);
+    deck.pop();
+    //document.getElementById("sometext").innerHTML = hand[i].recallName();
+  }
 }

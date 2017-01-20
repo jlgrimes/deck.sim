@@ -1,3 +1,2 @@
 # deck.sim
-Pokemon Deck Simulator
-http://comp0cker.gthub.io/deck.sim
+http://comp0cker.github.io/deck.sim

@@ -12,3 +12,4 @@ card.prototype.recallType = function(){
 }
 
 var deck = [];
+var hand = [];

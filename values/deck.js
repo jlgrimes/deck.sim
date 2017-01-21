@@ -1,6 +1,7 @@
-function card (name, type) {
+function card (name, type, set) {
 	this.name = name;
 	this.type = type;
+	this.set = set;
 
 	var action = name.replace(" ", "_");
 }
@@ -42,3 +43,4 @@ var hand = [];
 var prizes = [];
 var active;
 var benched = [];
+var globalSet;

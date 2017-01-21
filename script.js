@@ -1,12 +1,28 @@
+$(document).ready(function(){
+    $("#parsedeck").click(function(){
+        $("textarea").hide();
+    });
+
+    $('#hand').bind('click', function(event) {
+        value = document.getElementById(event.target.id).innerHTML;
+        alert(value);
+    });
+});
+
 function play()
 {
   document.getElementById("hand").innerHTML = "";
+
   deck = [];
   hand = [];
+  prizes = [];
 
   parse();
   deck = shuffle(deck);
   deal(7);
+  dealPrizes();
+
+  updateDebug();
 }
 
 function parse()
@@ -48,6 +64,8 @@ function parse()
       	var j;
       	lines[i] = lines[i].slice(2);
 
+        
+
       	for (j = 0; j < num; j++)
       	{
       		if (target == "pokemon")
@@ -87,19 +105,44 @@ function shuffle(array) {
 function deal(num) {
   var i;
   var initialHandLength = hand.length;
+  var pos;
 
   for (i = 0; i < num; i++)
   {
-    var pos = i + initialHandLength;
-    var para = document.createElement("card" + pos);
-    var node = document.createTextNode("card" + pos + ": " + deck[deck.length - 1].recallName());
+    pos = i + initialHandLength;
+    var para = document.createElement("P");
+    para.setAttribute("id", "card" + pos);
+    para.setAttribute("innerHTML", deck[deck.length - 1].recallName());
+    //para.setAttribute("onclick", onClickTriggered());
+
+    //para.onclick = function {
+    //  alert(deck[deck.length - 1].recallName());
+    //};
+
+    var node = document.createTextNode(deck[deck.length - 1].recallName());
     para.appendChild(node);
 
-    var element = document.getElementById("hand");
-    element.appendChild(para);
+    document.getElementById("hand").appendChild(para);
 
     hand.push(deck[deck.length - 1]);
     deck.pop();
+  }
+}
+
+function dealPrizes()
+{
+  var i;
+
+  for (i = 0; i < 6; i++)
+  {
+    prizes.push(deck[deck.length - 1]);
+    deck.pop();
     //document.getElementById("sometext").innerHTML = hand[i].recallName();
   }
+}
+
+function updateDebug()
+{
+  document.getElementById("deckSize").innerHTML = "Deck: " + deck.length;
+  document.getElementById("remainingPrizes").innerHTML = "Prizes: " + prizes.length;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="values/deck.js"></script>
     <script src="script.js"></script>
   </head>
@@ -8,11 +9,16 @@
 <body>
   <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 45 cols = 60></textarea>
 
-  <button type="button"
-  onclick="play(); deck = []">
+  <button type="button" id="parsedeck"
+  onclick="play()">
   parse deck</button>
   
-  <p id="sometext"></p>
+  <p id="sometext" onclick=""></p>
+
+  <div id="debug">
+  	<p id="deckSize"></p>
+  	<p id="remainingPrizes"></p>
+  </div>
 
   <div id="hand"></div>
   

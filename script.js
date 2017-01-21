@@ -5,7 +5,20 @@ $(document).ready(function(){
 
     $('#hand').bind('click', function(event) {
         value = document.getElementById(event.target.id).innerHTML;
-        alert(value);
+
+        var i = 0;
+
+        while(i < hand.length)
+        {
+          if (hand[i].recallName().includes(value))
+            {
+              globalSet = hand[i].set;
+            }
+          i++;
+        }
+
+        alert(globalSet);
+        
     });
 });
 
@@ -62,18 +75,30 @@ function parse()
       {
       	var num = lines[i].substr(0, lines[i].indexOf(' '));
       	var j;
-      	lines[i] = lines[i].slice(2);
+      	lines[i] = lines[i].slice(2); // removes the number of card
 
-        
+
+        var index = lines[i].indexOf(' ');
+
+        var set = lines[i].slice(index);
+        //var setUpper = set.toUpper();
+
+        while (set.charAt(2) == set.charAt(2).toLowerCase())
+        {
+          set = set.slice(1);
+          index = set.indexOf(' ');
+          set = set.slice(index);
+          //set = set.charAt(2);
+        }
 
       	for (j = 0; j < num; j++)
       	{
       		if (target == "pokemon")
-      			var tempCard = new card(lines[i], "pokemon");
+      			var tempCard = new card(lines[i], "pokemon", set);
       		else if (target == "trainers")
-      			var tempCard = new card(lines[i], "trainer");
+      			var tempCard = new card(lines[i], "trainer", set);
       		else if (target == "energy")
-      			var tempCard = new card(lines[i], "energy");
+      			var tempCard = new card(lines[i], "energy", set);
 
           totalCount++;
           deck.push(tempCard);

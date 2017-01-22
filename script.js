@@ -5,40 +5,28 @@ $(document).ready(function(){
 
     $("#hand").click(function(event) {
 
-        $(event.target).hide();
-
         //alert(event.target.innerHTML)
 
         discardCount++;
         //alert(discardCount);
         updateDebug();
 
-        $("#discard").append("<p class = 'card'>" + event.target.innerHTML + "</p>");
+        $("#discard").append("<img src = '" + event.target.src + "'</p>");
+        $(event.target).remove();
 
         if (hand[indexChild] == "N DEX 96" && !supporterPlayed)
         {
           alert("N!");
           N();
         }
-
-        var url = 'https://api.pokemontcg.io/v1/cards/' + hand[j].set + "-" + hand[j].setNo;
-        var setName;
-/*
-        $.getJSON(url, function(data) {
-          if (hand[j].type == "pokemon")
-            alert(data.card.subtype);
-          else if (hand[j].type == "trainer")
-            alert(data.card.text);
-          else if (hand[j].type == "energy")
-            alert(data.card.name);
-
-        });
-        */
     });
 });
 
 function play()
 {
+  $("#discard").empty();
+  $("#discard").append("<p id = 'noDiscard'></p>");
+
   document.getElementById("hand").innerHTML = "";
 
   deck = [];
@@ -158,10 +146,17 @@ function deal(num) {
   var i;
   var initialHandLength = hand.length;
   var pos;
+  var url;
 
   for (i = 0; i < num; i++)
   {
-    $("#hand").append("<p class = 'card'>" + deck[deck.length - 1].name + "</p>");
+    url = 'https://api.pokemontcg.io/v1/cards/' + deck[deck.length - 1].set + "-" + deck[deck.length - 1].setNo;
+
+    $.getJSON(url, function(data) {
+      $("#hand").append("<img src='" + data.card.imageUrl + "'></img>");
+    });
+
+    //$("#hand").append("<p class = 'card'>" + deck[deck.length - 1].name + "</p>");
     deck.pop();
   }
 }

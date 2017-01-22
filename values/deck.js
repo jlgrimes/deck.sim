@@ -1,7 +1,8 @@
-function card (name, type, set) {
+function card (name, type, set, setNo) {
 	this.name = name;
 	this.type = type;
 	this.set = set;
+	this.setNo = setNo;
 
 	var action = name.replace(" ", "_");
 }

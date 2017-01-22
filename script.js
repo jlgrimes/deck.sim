@@ -7,18 +7,26 @@ $(document).ready(function(){
         value = document.getElementById(event.target.id).innerHTML;
 
         var i = 0;
+        var j = 0;
 
         while(i < hand.length)
         {
           if (hand[i].recallName().includes(value))
-            {
-              globalSet = hand[i].set;
-            }
+              j = i;
           i++;
         }
 
-        alert(globalSet);
-        
+        var url = 'https://api.pokemontcg.io/v1/cards/' + hand[j].set + "-" + hand[j].setNo;
+        var setName;
+
+        $.getJSON(url, function(data) {
+          if (hand[j].type == "pokemon")
+            alert(data.card.subtype);
+          else if (hand[j].type == "trainer")
+            alert(data.card.text);
+          else if (hand[j].type == "energy")
+            alert(data.card.name);
+        });
     });
 });
 
@@ -91,14 +99,24 @@ function parse()
           //set = set.charAt(2);
         }
 
+        var setNo = set.substr(4);
+        set = set.substr(0,4);
+        var tempset = set.split(' ').join('');
+        set = tempset;
+        var tempsetNo = setNo.split(' ').join('');
+        setNo = tempsetNo;
+
+        var convertedSet = setConvert(set);
+        set = convertedSet;
+
       	for (j = 0; j < num; j++)
       	{
       		if (target == "pokemon")
-      			var tempCard = new card(lines[i], "pokemon", set);
+      			var tempCard = new card(lines[i], "pokemon", set, setNo);
       		else if (target == "trainers")
-      			var tempCard = new card(lines[i], "trainer", set);
+      			var tempCard = new card(lines[i], "trainer", set, setNo);
       		else if (target == "energy")
-      			var tempCard = new card(lines[i], "energy", set);
+      			var tempCard = new card(lines[i], "energy", set, setNo);
 
           totalCount++;
           deck.push(tempCard);

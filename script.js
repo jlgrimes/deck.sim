@@ -3,22 +3,27 @@ $(document).ready(function(){
         $("textarea").hide();
     });
 
-    $('#hand').bind('click', function(event) {
-        value = document.getElementById(event.target.id).innerHTML;
+    $("#hand").click(function(event) {
 
-        var i = 0;
-        var j = 0;
+        $(event.target).hide();
 
-        while(i < hand.length)
+        //alert(event.target.innerHTML)
+
+        discardCount++;
+        //alert(discardCount);
+        updateDebug();
+
+        $("#discard").append("<p class = 'card'>" + event.target.innerHTML + "</p>");
+
+        if (hand[indexChild] == "N DEX 96" && !supporterPlayed)
         {
-          if (hand[i].recallName().includes(value))
-              j = i;
-          i++;
+          alert("N!");
+          N();
         }
 
         var url = 'https://api.pokemontcg.io/v1/cards/' + hand[j].set + "-" + hand[j].setNo;
         var setName;
-
+/*
         $.getJSON(url, function(data) {
           if (hand[j].type == "pokemon")
             alert(data.card.subtype);
@@ -26,7 +31,9 @@ $(document).ready(function(){
             alert(data.card.text);
           else if (hand[j].type == "energy")
             alert(data.card.name);
+
         });
+        */
     });
 });
 
@@ -35,13 +42,15 @@ function play()
   document.getElementById("hand").innerHTML = "";
 
   deck = [];
-  hand = [];
   prizes = [];
+  discardCount = 0;
 
   parse();
   deck = shuffle(deck);
   deal(7);
   dealPrizes();
+
+  //deal(1);
 
   updateDebug();
 }
@@ -152,22 +161,7 @@ function deal(num) {
 
   for (i = 0; i < num; i++)
   {
-    pos = i + initialHandLength;
-    var para = document.createElement("P");
-    para.setAttribute("id", "card" + pos);
-    para.setAttribute("innerHTML", deck[deck.length - 1].recallName());
-    //para.setAttribute("onclick", onClickTriggered());
-
-    //para.onclick = function {
-    //  alert(deck[deck.length - 1].recallName());
-    //};
-
-    var node = document.createTextNode(deck[deck.length - 1].recallName());
-    para.appendChild(node);
-
-    document.getElementById("hand").appendChild(para);
-
-    hand.push(deck[deck.length - 1]);
+    $("#hand").append("<p class = 'card'>" + deck[deck.length - 1].name + "</p>");
     deck.pop();
   }
 }
@@ -184,8 +178,45 @@ function dealPrizes()
   }
 }
 
+function playCard(pos)
+{
+  discard.push(hand[pos]);
+/*
+  var para = document.createElement("P");
+  para.setAttribute("id", "deadcard" + pos);
+  para.setAttribute("innerHTML", hand[pos].recallName());
+  var node = document.createTextNode(hand[pos].recallName());
+  para.appendChild(node);
+  document.getElementById("discard").appendChild(para);
+*/
+  hand.splice(pos, 1);
+
+  var cardsS = document.getElementById('hand');
+  cardsS.removeChild(cardsS.childNodes[pos]);
+
+  //alert('card' + pos)
+}
+
+function shuffleHandInDeck()
+{
+  var handLength = hand.length;
+  var i;
+  for (i = 0; i < handLength; i++)
+  {
+    deck.push(hand[hand.length - 1]);
+    updateDebug();
+    var cardsS = document.getElementById('hand');
+    var badCard = document.getElementById('card');
+    cardsS.removeChild(badCard);
+    hand.pop();
+  }
+
+  shuffle(deck);
+}
+
 function updateDebug()
 {
   document.getElementById("deckSize").innerHTML = "Deck: " + deck.length;
   document.getElementById("remainingPrizes").innerHTML = "Prizes: " + prizes.length;
+  document.getElementById("noDiscard").innerHTML = "Discard: " + discardCount;
 }

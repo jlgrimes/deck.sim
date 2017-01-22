@@ -40,8 +40,9 @@ card.prototype.recallType = function(){
 }
 
 var deck = [];
-var hand = [];
 var prizes = [];
-var active;
-var benched = [];
+var supporterPlayed = false;
+
+var discardCount
+
 var globalSet;

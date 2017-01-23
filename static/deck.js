@@ -43,6 +43,6 @@ var deck = [];
 var prizes = [];
 var supporterPlayed = false;
 
-var discardCount
+var discardCount;
 
 var globalSet;

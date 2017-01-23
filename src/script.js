@@ -10,16 +10,16 @@ $(document).ready(function(){
 
         discardCount++;
         //alert(discardCount);
-        updateDebug();
 
         $("#discard").append("<img src = '" + event.target.src + "'</p>");
         $(event.target).remove();
 
-        if (event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" && !supporterPlayed)
-        {
-          alert("N!");
+        if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
           N();
-        }
+        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
+          sycamore();
+
+        updateDebug();
     });
 });
 
@@ -36,7 +36,7 @@ function play()
 
   parse();
   deck = shuffle(deck);
-  deal(7);
+  draw(7);
   dealPrizes();
 
   //deal(1);
@@ -124,10 +124,24 @@ function parse()
    //document.getElementById("sometext").innerHTML = deck[i].recallName() + " " + deck[i].recallType();
 }
 
+function pictojson(url){
+  url = url.replace('https://s3.amazonaws.com/pokemontcg/','');
+  url = url.replace('.png','');
+  url = url.replace('/','-');
+
+  return ("https://api.pokemontcg.io/v1/cards/" + url);
+}
+
 function pictodeck(url){
+      var name = "default";
+
+      url = pictojson(url);
+      
       $.getJSON(url, function(data) {
-      var tempCard = new card(data.card.name, "idk", data.card.setCode, data.card.number)
-      deck.push(tempCard);
+        //alert("before: " + deck.length)
+        var tempCard = new card(data.card.name, "idk", data.card.setCode, data.card.number)
+        deck.push(tempCard);
+        //alert("after: " + deck.length)
     });
 }
 

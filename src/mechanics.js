@@ -17,7 +17,7 @@ function shuffle(array) {
   return array;
 }
 
-function deal(num) {
+function draw(num) {
   var i;
   var initialHandLength = hand.length;
   var pos;
@@ -48,26 +48,27 @@ function dealPrizes()
   }
 }
 
-function playCard(pos)
-{
-  discard.push(hand[pos]);
-  hand.splice(pos, 1);
-
-  var cardsS = document.getElementById('hand');
-  cardsS.removeChild(cardsS.childNodes[pos]);
-
-  //alert('card' + pos)
-}
-
 function shuffleHandInDeck()
 {
   var handLength = $("#hand").children().length;
   var i;
   for (i = 0; i < handLength; i++)
   {
-    pictodeck($('#hand').children().first().src)
+    pictodeck($("#hand img").first().attr("src"))
     $('#hand').children().first().remove();
   }
 
   shuffle(deck);
+}
+
+function discardHand()
+{
+  var handLength = $("#hand").children().length;
+  var i;
+  for (i = 0; i < handLength; i++)
+  {
+    $("#discard").append("<img src = '" + $("#hand img").first().attr("src") + "'</img>");
+    $('#hand').children().first().remove();
+    discardCount++;
+  }
 }

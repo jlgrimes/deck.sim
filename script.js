@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $("#parsedeck").click(function(){
         $("textarea").hide();
     });
@@ -14,7 +15,7 @@ $(document).ready(function(){
         $("#discard").append("<img src = '" + event.target.src + "'</p>");
         $(event.target).remove();
 
-        if (hand[indexChild] == "N DEX 96" && !supporterPlayed)
+        if (event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" && !supporterPlayed)
         {
           alert("N!");
           N();
@@ -123,6 +124,13 @@ function parse()
    //document.getElementById("sometext").innerHTML = deck[i].recallName() + " " + deck[i].recallType();
 }
 
+function pictodeck(url){
+      $.getJSON(url, function(data) {
+      var tempCard = new card(data.card.name, "idk", data.card.setCode, data.card.number)
+      deck.push(tempCard);
+    });
+}
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -194,16 +202,12 @@ function playCard(pos)
 
 function shuffleHandInDeck()
 {
-  var handLength = hand.length;
+  var handLength = $("#hand").children().length;
   var i;
   for (i = 0; i < handLength; i++)
   {
-    deck.push(hand[hand.length - 1]);
-    updateDebug();
-    var cardsS = document.getElementById('hand');
-    var badCard = document.getElementById('card');
-    cardsS.removeChild(badCard);
-    hand.pop();
+    pictodeck($('#hand').children().first().src)
+    $('#hand').children().first().remove();
   }
 
   shuffle(deck);

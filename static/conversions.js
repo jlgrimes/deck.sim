@@ -1,9 +1,9 @@
 function setConvert(abbr){
 	if (abbr == "EVO")
 		return "xy12";
-	else if (abbr == "STS")
+	else if (abbr == "STS" || abbr == "STM")
 		return "xy11";
-	else if (abbr == "FCO")
+	else if (abbr == "FAC" || abbr == "FCO")
 		return "xy10";
 	else if (abbr == "GEN")
 		return "g1";
@@ -13,7 +13,7 @@ function setConvert(abbr){
 		return "xy8";
 	else if (abbr == "AOR")
 		return "xy7";
-	else if (abbr == "ROS")
+	else if (abbr == "ROS" || abbr == "RSK")
 		return "xy6";
 	else if (abbr == "DCR")
 		return "dc1";
@@ -21,7 +21,7 @@ function setConvert(abbr){
 		return "xy5";
 	else if (abbr == "PHF")
 		return "xy4";
-	else if (abbr == "FFI")
+	else if (abbr == "FFI" || abbr == "FUF")
 		return "xy3";
 	else if (abbr == "FLF")
 		return "xy2";

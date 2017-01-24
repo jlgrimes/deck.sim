@@ -27,10 +27,21 @@ function draw(num) {
   {
     url = 'https://api.pokemontcg.io/v1/cards/' + deck[deck.length - 1].set + "-" + deck[deck.length - 1].setNo;
 
+    $.ajax({
+      async: false,
+      url: url,
+      success: function(data) {
+        $("#hand").append("<img src='" + data.card.imageUrl + "'></img>");
+        if (data.card.supertype.includes("Pok"))
+          if (data.card.subtype == "Basic" || data.card.subtype == "EX")
+            ifBasic = true;
+      }
+    });
+/*
     $.getJSON(url, function(data) {
       $("#hand").append("<img src='" + data.card.imageUrl + "'></img>");
     });
-
+*/
     //$("#hand").append("<p class = 'card'>" + deck[deck.length - 1].name + "</p>");
     deck.pop();
   }

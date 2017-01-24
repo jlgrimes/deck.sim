@@ -30,13 +30,27 @@ function play()
 
   document.getElementById("hand").innerHTML = "";
 
-  deck = [];
   prizes = [];
   discardCount = 0;
+  ifBasic = false;
+  repeat = false;
 
-  parse();
-  deck = shuffle(deck);
-  draw(7);
+  while(!ifBasic)
+  {
+    deck = [];
+    $("#hand").empty();
+    
+    parse();
+
+    if (repeat)
+      alert("Mulligan!");
+    
+    deck = shuffle(deck);
+    draw(7);
+
+    repeat = true;
+  }
+
   dealPrizes();
 
   //deal(1);
@@ -55,29 +69,12 @@ function parse()
    
    for(var i = 0;i < lines.length;i++){
 
-   	  if (lines[i].includes("on -"))
-   	  {
-      		target = "pokemon";
-      		badLine = true;
-   	  }
-   	  else if (lines[i].includes("Trainer Cards -"))
-   	  {
-   	  		target = "trainers"
-   	  		badLine = true;
-   	  }
-   	  else if (lines[i].includes("Energy -"))
-   	  {
-   	  		target = "energy"
-   	  		badLine = true;
-   	  }
-   	  else if (lines[i].includes("Total Cards"))
-   	  {
-   	  		badLine = true;
-   	  }
+   	  if (lines[i].includes(" - ") || lines[i].includes("**") || lines[i] == "")
+        badLine = true;
    	  else
    	  	badLine = false;
 
-      if (lines[i][0] != '*' && lines[i] != "" && !badLine)
+      if (!badLine)
       {
       	var num = lines[i].substr(0, lines[i].indexOf(' '));
       	var j;
@@ -109,12 +106,7 @@ function parse()
 
       	for (j = 0; j < num; j++)
       	{
-      		if (target == "pokemon")
-      			var tempCard = new card(lines[i], "pokemon", set, setNo);
-      		else if (target == "trainers")
-      			var tempCard = new card(lines[i], "trainer", set, setNo);
-      		else if (target == "energy")
-      			var tempCard = new card(lines[i], "energy", set, setNo);
+      		var tempCard = new card(lines[i], set, setNo);
 
           totalCount++;
           deck.push(tempCard);
@@ -139,7 +131,7 @@ function pictodeck(url){
       
       $.getJSON(url, function(data) {
         //alert("before: " + deck.length)
-        var tempCard = new card(data.card.name, "idk", data.card.setCode, data.card.number)
+        var tempCard = new card(data.card.name, data.card.setCode, data.card.number)
         deck.push(tempCard);
         //alert("after: " + deck.length)
     });

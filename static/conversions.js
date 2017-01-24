@@ -25,11 +25,11 @@ function setConvert(abbr){
 		return "xy3";
 	else if (abbr == "FLF")
 		return "xy2";
-	else if (abbr == "XY")
+	else if (abbr == "XY ")
 		return "xy1";
 	else if (abbr == "KSS")
 		return "xy0";
-	else if (abbr == "PR")
+	else if (abbr == "PR" || abbr == " XY")
 		return "xyp";
 	else if (abbr == "LTR")
 		return "bw11";

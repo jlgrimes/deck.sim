@@ -5,11 +5,7 @@ $(document).ready(function(){
     });
 
     $("#hand").click(function(event) {
-
-        //alert(event.target.innerHTML)
-
         discardCount++;
-        //alert(discardCount);
 
         $("#discard").append("<img src = '" + event.target.src + "'</p>");
         $(event.target).remove();
@@ -90,22 +86,20 @@ function parse()
         var index = lines[i].indexOf(' ');
 
         var set = lines[i].slice(index);
-        //var setUpper = set.toUpper();
 
         while (set.charAt(2) == set.charAt(2).toLowerCase())
         {
           set = set.slice(1);
           index = set.indexOf(' ');
           set = set.slice(index);
-          //set = set.charAt(2);
         }
 
         var setNo = set.substr(4);
         set = set.substr(0,4);
-        var tempset = set.split(' ').join('');
-        set = tempset;
+        set = set.slice(1);
         var tempsetNo = setNo.split(' ').join('');
         setNo = tempsetNo;
+        //alert(set);
 
         var convertedSet = setConvert(set);
         set = convertedSet;
@@ -119,7 +113,6 @@ function parse()
       	}
 	  }
    }
-   //document.getElementById("sometext").innerHTML = deck[i].recallName() + " " + deck[i].recallType();
 }
 
 function pictojson(url){
@@ -136,10 +129,8 @@ function pictodeck(url){
       url = pictojson(url);
       
       $.getJSON(url, function(data) {
-        //alert("before: " + deck.length)
         var tempCard = new card(data.card.name, data.card.setCode, data.card.number)
         deck.push(tempCard);
-        //alert("after: " + deck.length)
     });
 }
 

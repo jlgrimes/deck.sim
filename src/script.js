@@ -44,6 +44,9 @@ function play()
 
     if (repeat)
       alert("Mulligan!");
+    else
+      if (deck.length != 60)
+        alert("Your deck has " + deck.length + " cards! That's not legal by any means, as every deck must have 60 cards, but I'll let it slide!")
     
     deck = shuffle(deck);
     draw(7);
@@ -76,6 +79,9 @@ function parse()
 
       if (!badLine)
       {
+        while (isNaN(lines[i][0]) || lines[i][0] == " ")
+          lines[i] = lines[i].slice(1);
+
       	var num = lines[i].substr(0, lines[i].indexOf(' '));
       	var j;
       	lines[i] = lines[i].slice(2); // removes the number of card

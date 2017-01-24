@@ -31,7 +31,7 @@ function draw(num) {
       async: false,
       url: url,
       success: function(data) {
-        $("#hand").append("<img src='" + data.card.imageUrl + "'></img>");
+        $("#hand").append("<img src='" + data.card.imageUrl + "' class='card'></img>");
         if (data.card.supertype.includes("Pok"))
           if (data.card.subtype == "Basic" || data.card.subtype == "EX")
             ifBasic = true;
@@ -82,4 +82,14 @@ function discardHand()
     $('#hand').children().first().remove();
     discardCount++;
   }
+}
+
+function searchDeck()
+{
+  var i;
+  for (i = 0; i < deck.length; i++)
+    $("#peek").append("<div class = 'card'>" + deck[i].name + "</div>");
+
+    //alert($('#hand').children().first().nodeName);
+    //alert($('#peek').children().first().nodeName);
 }

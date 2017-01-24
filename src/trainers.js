@@ -11,3 +11,8 @@ function sycamore()
 	draw(7);
 	updateDebug();
 }
+function levelball()
+{
+	script = "";
+	searchDeck();
+}

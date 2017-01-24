@@ -10,5 +10,9 @@ var supporterPlayed = false;
 var ifBasic;
 
 var discardCount;
+var activeFilled;
+var script;
+
+var triggerpos;
 
 var globalSet;

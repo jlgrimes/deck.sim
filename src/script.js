@@ -104,6 +104,9 @@ function parse()
         var convertedSet = setConvert(set);
         set = convertedSet;
 
+        if (set == "xyp")
+          setNo = "xy" + tempsetNo;
+
       	for (j = 0; j < num; j++)
       	{
       		var tempCard = new card(lines[i], set, setNo);

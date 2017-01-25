@@ -10,6 +10,7 @@ function sycamore()
 	discardHand();
 	draw(7);
 	updateDebug();
+	supporterPlayed = true;
 }
 function levelball()
 {

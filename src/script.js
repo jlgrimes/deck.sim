@@ -116,6 +116,7 @@ function play()
   ifBasic = false;
   repeat = false;
   activeFilled = false;
+  supporterPlayed = false;
 
   while(!ifBasic)
   {

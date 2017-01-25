@@ -68,7 +68,7 @@ $(document).ready(function(){
           }
           else
           {
-            if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && supporterPlayed))
+            if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png") && supporterPlayed))
             {
             $(event.target).remove();
             $("#discard").append("<img src = '" + event.target.src + "' height='150'</img>");

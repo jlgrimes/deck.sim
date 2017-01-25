@@ -31,7 +31,8 @@ function draw(num) {
       async: false,
       url: url,
       success: function(data) {
-        $("#hand").append("<img src='" + data.card.imageUrl + "' class='card'></img>");
+        $("#hand").append("<img src='" + data.card.imageUrl + "' class='card' height='300'></img>");
+        //alert(data.card.supertype)
         if (data.card.supertype.includes("Pok"))
           if (data.card.subtype == "Basic" || data.card.subtype == "EX")
             ifBasic = true;
@@ -78,7 +79,7 @@ function discardHand()
   var i;
   for (i = 0; i < handLength; i++)
   {
-    $("#discard").append("<img src = '" + $("#hand img").first().attr("src") + "'</img>");
+    $("#discard").append("<img src = '" + $("#hand img").first().attr("src") + "'height='150'</img>");
     $('#hand').children().first().remove();
     discardCount++;
   }

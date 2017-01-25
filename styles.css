@@ -1,3 +1,11 @@
+#active {
+	display: inline;
+}
+
+#benched {
+	display: inline;
+}
+
 #discard {
 	color: red;
 }

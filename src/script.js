@@ -21,7 +21,7 @@ $(document).ready(function(){
         async: false,
         url: url,
         success: function(data) {
-          $("#hand").append("<img src = '" + pic + "'</img>");
+          $("#hand").append("<img src = '" + pic + "' height='300'</img>");
         }
         });
 
@@ -32,31 +32,51 @@ $(document).ready(function(){
     });
 
     $("#hand").click(function(event) {
-        discardCount++;
 
         var url = pictojson(event.target.src);
 
+        if (!activeFilled)
+        {
+          $.ajax({
+        async: false,
+        url: url,
+        success: function(data) {
+        if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
+        {
+          activeFilled = true;
+          $("#active").append("<img src = '" + event.target.src + "' height='300'</img>");
+          $(event.target).remove();
+
+          dealPrizes();
+          draw(1);
+          updateDebug();
+        }
+        }
+          })
+        }
+        else
+        {
       $.ajax({
         async: false,
         url: url,
         success: function(data) {
-          if (data.card.subtype == "Basic" || data.card.subtype == "EX")
+          if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
           {
-            if (activeFilled)
-              $("#benched").append("<img src = '" + event.target.src + "'</img>");
-            else
-            {
-              $("#active").append("<img src = '" + event.target.src + "'</img>");
-              activeFilled = true;
-            }
+              $("#benched").append("<img src = '" + event.target.src + "' height='250'</img>");
+              $(event.target).remove();
+
           }
           else
-            $("#discard").append("<img src = '" + event.target.src + "'</img>");
+          {
+            if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && supporterPlayed))
+            {
+            $(event.target).remove();
+            $("#discard").append("<img src = '" + event.target.src + "' height='150'</img>");
+            discardCount++;
+            }
+          }
         }
         });
-
-
-        $(event.target).remove();
 
         if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
         {
@@ -73,14 +93,20 @@ $(document).ready(function(){
           //script = "levelball";
           levelball();
         }
+        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
+          ultraball();
+        }
 
         updateDebug();
     });
+    
 });
 
 function play()
 {
   $("#discard").empty();
+  $("#active").empty();
+  $("#benched").empty();
   $("#discard").append("<p id = 'noDiscard'></p>");
 
   document.getElementById("hand").innerHTML = "";
@@ -110,7 +136,7 @@ function play()
     repeat = true;
   }
 
-  dealPrizes();
+  alert("Please choose an Active Pokemon.");
 
   //deal(1);
 
@@ -189,7 +215,12 @@ function pictojson(url){
 
 function decktojson(pos)
 {
-        var url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-" + deck[pos].setNo;
+        var url;
+        
+        if (deck[pos].set == "xyp")
+          url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-xy" + deck[pos].setNo;
+        else
+          url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-" + deck[pos].setNo;
 
         return url;
 }

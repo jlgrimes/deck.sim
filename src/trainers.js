@@ -13,6 +13,9 @@ function sycamore()
 }
 function levelball()
 {
-	script = "";
+	searchDeck();
+}
+function ultraball()
+{
 	searchDeck();
 }

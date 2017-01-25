@@ -7,9 +7,28 @@ $(document).ready(function(){
     });
 
     $("#peek").on("click", "div", function(event) {
+      var index = $(this).index();
+      //alert(index);
       //alert(decktopic((this).index()));
-      //deck.splice((this).index(), 1);
+
+      var url = decktojson(index);
+      var pic = jsontopic(url);
+
+      //alert(url);
+      //alert(pic);
+
+      $.ajax({
+        async: false,
+        url: url,
+        success: function(data) {
+          $("#hand").append("<img src = '" + pic + "'</img>");
+        }
+        });
+
+      deck.splice($(this).index(), 1);
+      shuffle(deck);
       $("#peek").empty();
+      updateDebug();
     });
 
     $("#hand").click(function(event) {
@@ -40,13 +59,18 @@ $(document).ready(function(){
         $(event.target).remove();
 
         if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
+        {
+          //script = "n";
           N();
+        }
         else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
+        {
+          //script = "sycamore";
           sycamore();
+        }
         else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
         {
-          //$("#peek").append("<div>toodank</div>");
-          $("#peek").append("<div>" + deck[0].name + "</div>");
+          //script = "levelball";
           levelball();
         }
 
@@ -163,36 +187,20 @@ function pictojson(url){
   return ("https://api.pokemontcg.io/v1/cards/" + url);
 }
 
-function decktopic(i)
+function decktojson(pos)
 {
-        var num = lines[i].substr(0, lines[i].indexOf(' '));
-      	var j;
-      	lines[i] = lines[i].slice(2); // removes the number of card
-
-        var index = lines[i].indexOf(' ');
-
-        var set = lines[i].slice(index);
-
-        while (set.charAt(2) == set.charAt(2).toLowerCase())
-        {
-          set = set.slice(1);
-          index = set.indexOf(' ');
-          set = set.slice(index);
-        }
-
-        var setNo = set.substr(4);
-        set = set.substr(0,4);
-        set = set.slice(1);
-        var tempsetNo = setNo.split(' ').join('');
-        setNo = tempsetNo;
-        //alert(set);
-
-        var convertedSet = setConvert(set);
-        set = convertedSet;
-
-        var url = 'https://api.pokemontcg.io/v1/cards/' + set + "-" + setNo;
+        var url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-" + deck[pos].setNo;
 
         return url;
+}
+
+function jsontopic(url)
+{
+  url = url.replace('https://api.pokemontcg.io/v1/cards/','');
+  url = url.replace('-','/');
+
+  return ("https://s3.amazonaws.com/pokemontcg/" + url + ".png");
+
 }
 
 function pictodeck(url){

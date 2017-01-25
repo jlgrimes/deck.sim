@@ -11,7 +11,7 @@ var ifBasic;
 
 var discardCount;
 var activeFilled;
-var script;
+//var script;
 
 var triggerpos;
 

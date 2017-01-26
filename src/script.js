@@ -101,15 +101,10 @@ $(document).ready(function(){
         });
 
         if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
-        {
-          //script = "n";
           N();
-        }
+
         else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
-        {
-          //script = "sycamore";
           sycamore();
-        }
         else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
         {
           //script = "levelball";
@@ -117,6 +112,12 @@ $(document).ready(function(){
         }
         else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
           ultraball();
+        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/77.png")
+        {
+            draw(6 - $("#hand").children().length)
+        }
+
+
         }
 
         updateDebug();

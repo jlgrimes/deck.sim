@@ -17,7 +17,7 @@ $(document).ready(function(){
         var lines = document.getElementById('deckIn').value.split('\n');
         Cookies.set('deck', JSON.stringify(lines));
 
-        alert(Cookies.get('deck'));
+        //alert(Cookies.get('deck'));
     });
 
     $("#import").click(function(){

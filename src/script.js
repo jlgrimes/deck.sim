@@ -1,23 +1,16 @@
 $(document).ready(function(){
-
     parseCookie();
 
     //$("#peek").append("<div>dank</div>");
 
     $("#parsedeck").click(function(){
-        var lines = document.getElementById('deckIn').value.split('\n');
-        Cookies.set('deck', JSON.stringify(lines));
-
-        //alert(Cookies.get('deck'));
         $("textarea").hide();
         play();
     });
 
     $("#save").click(function(){
-        var lines = document.getElementById('deckIn').value.split('\n');
-        Cookies.set('deck', JSON.stringify(lines));
-
-        //alert(Cookies.get('deck'));
+        setCookie();
+        alert(getCookie("deck"));
     });
 
     $("#import").click(function(){
@@ -26,6 +19,7 @@ $(document).ready(function(){
 
     $("#peek").on("click", "div", function(event) {
       var index = $(this).index();
+      var valid = true;
       //alert(index);
       //alert(decktopic((this).index()));
 
@@ -39,14 +33,24 @@ $(document).ready(function(){
         async: false,
         url: url,
         success: function(data) {
-          $("#hand").append("<img src = '" + pic + "' height='300'</img>");
+            if (!eval(param))
+                valid = false
+
+            if (valid)
+                $("#hand").append("<img src = '" + pic + "' height='300'</img>");
         }
         });
 
-      deck.splice($(this).index(), 1);
-      shuffle(deck);
-      $("#peek").empty();
-      updateDebug();
+      if (valid) {
+          deck.splice($(this).index(), 1);
+          shuffle(deck);
+          $("#peek").empty();
+          updateDebug();
+          param = 1;
+      }
+      else {
+          alert("Invalid card.");
+      }
     });
 
     $("#hand").click(function(event) {
@@ -166,10 +170,9 @@ function play()
 
 function parse()
 {
-   var lines = document.getElementById('deckIn').value.split('\n');
-   Cookies.set('deck', JSON.stringify(lines));
+    var lines = document.getElementById('deckIn').value.split('\n');
+   setCookie();
 
-   var target = "";
    var badLine = false;
 
    var totalCount = 0;
@@ -237,20 +240,23 @@ function decktojson(pos)
 {
         var url;
         
-        if (deck[pos].set == "xyp")
-          url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-xy" + deck[pos].setNo;
-        else
-          url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-" + deck[pos].setNo;
+        url = 'https://api.pokemontcg.io/v1/cards/' + deck[pos].set + "-" + deck[pos].setNo;
 
         return url;
 }
 
 function jsontopic(url)
 {
-  url = url.replace('https://api.pokemontcg.io/v1/cards/','');
-  url = url.replace('-','/');
+    url = url.replace('https://api.pokemontcg.io/v1/cards/','');
 
-  return ("https://s3.amazonaws.com/pokemontcg/" + url + ".png");
+    url = url.replace('-','/');
+
+    //alert(url);
+
+    if (url.indexOf("xyp") >= 0)
+        url = url.replace('/xy', '/XY');
+
+    return ("https://s3.amazonaws.com/pokemontcg/" + url + ".png");
 
 }
 
@@ -272,15 +278,15 @@ function findtrigger(index)
 
 function parseCookie()
 {
-    var lines = Cookies.get('deck');
+    //alert(document.cookie);
+    var lines = document.cookie;
     //alert("Lines length: " + globalLines.length + "lines[0]: " + globalLines[0]);
 
     //alert(lines);
-    lines = lines.split('[').join('');
-    lines = lines.split(']').join('');
-    lines = lines.split('"').join('');
-    lines = lines.split(',').join('\n');
+    lines = lines.split('~').join('\n');
+    lines = lines.split('deck=').join('');
 
+    $('#deckIn').empty();
     $('#deckIn').append(lines);
     //deckIn.append(lines[i].toString());
 }
@@ -290,4 +296,35 @@ function updateDebug()
   document.getElementById("deckSize").innerHTML = "Deck: " + deck.length;
   document.getElementById("remainingPrizes").innerHTML = "Prizes: " + prizes.length;
   document.getElementById("noDiscard").innerHTML = "Discard: " + discardCount;
+}
+
+function setCookie() {
+    var lines = document.getElementById('deckIn').value.split('\n');
+    var i;
+    var cvalue = "";
+
+    for (i = 0; i < lines.length; i++)
+        cvalue += lines[i] + "~";
+
+
+    //var d = new Date();
+    //d.setTime(d.getTime() + (10*24*60*60*1000));
+    //var expires = "expires="+ d.toUTCString();
+    document.cookie = "deck=" + cvalue + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

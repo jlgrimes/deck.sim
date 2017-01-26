@@ -15,6 +15,7 @@ function sycamore()
 function levelball()
 {
 	searchDeck();
+	param = "data.card.hp <= 90 && data.card.supertype.indexOf('mon') >= 0"
 }
 function ultraball()
 {

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="static/deck.js"></script>
-    <script src="static/conversions.js"></script>
-    <script src="src/trainers.js"></script>
-    <script src="src/script.js"></script>
-    <script src="src/mechanics.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="static/deck.js"></script>
+      <script src="static/conversions.js"></script>
+      <script src="src/trainers.js"></script>
+      <script src="src/script.js"></script>
+      <script src="src/mechanics.js"></script>
+      <script src="src/js.cookie.js"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
 
 <body>
 
-  <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 45 cols = 60></textarea>
+    <button type="button" id="import">import cookie</button>
 
-  <button type="button" id="parsedeck"
-  onclick="play()">
-  parse deck</button>
+    <button type="button" id="save">save cookie</button>
 
-  <div id = "peek"></div>
+    <div id = "cookies"></div>
 
-  <div id = "active"></div>
+    <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 45 cols = 60></textarea>
 
-  <div id = "benched"></div>
+    <button type="button" id="parsedeck">parse deck</button>
 
-  <div id = "hand" align = center></div>
-  <div id ="discard"></div>
+    <div id = "peek"></div>
+
+    <div id = "active"></div>
+
+    <div id = "benched"></div>
+
+    <div id = "hand" align = center></div>
+    <div id ="discard"></div>
 
     <div id="debug">
   	<p id="deckSize"></p>

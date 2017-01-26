@@ -1,9 +1,27 @@
 $(document).ready(function(){
 
+    parseCookie();
+
     //$("#peek").append("<div>dank</div>");
 
     $("#parsedeck").click(function(){
+        var lines = document.getElementById('deckIn').value.split('\n');
+        Cookies.set('deck', JSON.stringify(lines));
+
+        //alert(Cookies.get('deck'));
         $("textarea").hide();
+        play();
+    });
+
+    $("#save").click(function(){
+        var lines = document.getElementById('deckIn').value.split('\n');
+        Cookies.set('deck', JSON.stringify(lines));
+
+        alert(Cookies.get('deck'));
+    });
+
+    $("#import").click(function(){
+        parseCookie();
     });
 
     $("#peek").on("click", "div", function(event) {
@@ -147,8 +165,9 @@ function play()
 }
 
 function parse()
-{  
+{
    var lines = document.getElementById('deckIn').value.split('\n');
+   Cookies.set('deck', JSON.stringify(lines));
 
    var target = "";
    var badLine = false;
@@ -249,6 +268,21 @@ function pictodeck(url){
 function findtrigger(index)
 {
   alert(index);
+}
+
+function parseCookie()
+{
+    var lines = Cookies.get('deck');
+    //alert("Lines length: " + globalLines.length + "lines[0]: " + globalLines[0]);
+
+    //alert(lines);
+    lines = lines.split('[').join('');
+    lines = lines.split(']').join('');
+    lines = lines.split('"').join('');
+    lines = lines.split(',').join('\n');
+
+    $('#deckIn').append(lines);
+    //deckIn.append(lines[i].toString());
 }
 
 function updateDebug()

@@ -10,5 +10,9 @@
 	color: red;
 }
 
+#discard {
+	display: inline;
+}
+
 #hand{
 }

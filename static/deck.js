@@ -13,6 +13,7 @@ var discardCount;
 var activeFilled;
 //var script;
 var param = 1;
+var discardHand = 0;
 
 var triggerpos;
 

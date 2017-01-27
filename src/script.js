@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    parseCookie();
+    //parseCookie();
+    printCache();
 
     //$("#peek").append("<div>dank</div>");
 
@@ -9,12 +10,8 @@ $(document).ready(function(){
     });
 
     $("#save").click(function(){
-        setCookie();
-        alert(getCookie("deck"));
-    });
-
-    $("#import").click(function(){
-        parseCookie();
+        setCache();
+        //alert(getCookie("deck"));
     });
 
     $("#peek").on("click", "div", function(event) {
@@ -53,71 +50,67 @@ $(document).ready(function(){
       }
     });
 
+    $("#cookies").click(function(event) {
+        parseCache(event.target.innerHTML);
+    });
+
     $("#hand").click(function(event) {
 
         var url = pictojson(event.target.src);
 
         if (!activeFilled)
         {
-          $.ajax({
-        async: false,
-        url: url,
-        success: function(data) {
-        if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
-        {
-          activeFilled = true;
-          $("#active").append("<img src = '" + event.target.src + "' height='300'</img>");
-          $(event.target).remove();
+            $.ajax({
+                async: false,
+                url: url,
+                success: function(data) {
+                    if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
+                    {
+                        activeFilled = true;
+                        $("#active").append("<img src = '" + event.target.src + "' height='300'</img>");
+                        $(event.target).remove();
 
-          dealPrizes();
-          draw(1);
-          updateDebug();
-        }
-        }
-          })
+                        dealPrizes();
+                        draw(1);
+                        updateDebug();
+                    }
+                }
+            })
         }
         else
         {
-      $.ajax({
-        async: false,
-        url: url,
-        success: function(data) {
-          if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
-          {
-              $("#benched").append("<img src = '" + event.target.src + "' height='250'</img>");
-              $(event.target).remove();
+            $.ajax({
+                async: false,
+                url: url,
+                success: function(data) {
+                    if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
+                    {
+                        $("#benched").append("<img src = '" + event.target.src + "' height='250'</img>");
+                        $(event.target).remove();
+                    }
+                    else
+                        {
+                            if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png") && supporterPlayed))
+                            {
+                                $(event.target).remove();
+                                $("#discard").append("<img src = '" + event.target.src + "' height='150'</img>");
+                                discardCount++;
+                            }
+                        }
+                }
+            });
 
-          }
-          else
-          {
-            if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png") && supporterPlayed))
-            {
-            $(event.target).remove();
-            $("#discard").append("<img src = '" + event.target.src + "' height='150'</img>");
-            discardCount++;
-            }
-          }
-        }
-        });
+            if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
+                N();
 
-        if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
-          N();
-
-        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
-          sycamore();
-        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
-        {
-          //script = "levelball";
-          levelball();
-        }
-        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
-          ultraball();
-        else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/77.png")
-        {
-            draw(6 - $("#hand").children().length)
-        }
-
-
+            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
+                sycamore();
+            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
+                levelball();
+            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
+                ultraball();
+            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/77.png")
+                draw(6 - $("#hand").children().length)
         }
 
         updateDebug();
@@ -277,21 +270,6 @@ function findtrigger(index)
   alert(index);
 }
 
-function parseCookie()
-{
-    //alert(document.cookie);
-    var lines = document.cookie;
-    //alert("Lines length: " + globalLines.length + "lines[0]: " + globalLines[0]);
-
-    //alert(lines);
-    lines = lines.split('~').join('\n');
-    lines = lines.split('deck=').join('');
-
-    $('#deckIn').empty();
-    $('#deckIn').append(lines);
-    //deckIn.append(lines[i].toString());
-}
-
 function updateDebug()
 {
   document.getElementById("deckSize").innerHTML = "Deck: " + deck.length;
@@ -299,33 +277,3 @@ function updateDebug()
   document.getElementById("noDiscard").innerHTML = "Discard: " + discardCount;
 }
 
-function setCookie() {
-    var lines = document.getElementById('deckIn').value.split('\n');
-    var i;
-    var cvalue = "";
-
-    for (i = 0; i < lines.length; i++)
-        cvalue += lines[i] + "~";
-
-
-    //var d = new Date();
-    //d.setTime(d.getTime() + (10*24*60*60*1000));
-    //var expires = "expires="+ d.toUTCString();
-    document.cookie = "deck=" + cvalue + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}

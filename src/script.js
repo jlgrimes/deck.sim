@@ -6,11 +6,14 @@ $(document).ready(function(){
 
     $("#parsedeck").click(function(){
         $("textarea").hide();
+        $("#cookies").hide();
+        $("#save").hide();
         play();
     });
 
     $("#save").click(function(){
         setCache();
+        alert("Deck saved!");
         //alert(getCookie("deck"));
     });
 
@@ -88,6 +91,20 @@ $(document).ready(function(){
                         $("#benched").append("<img src = '" + event.target.src + "' height='250'</img>");
                         $(event.target).remove();
                     }
+
+                    else if (data.card.subtype == "Stadium" && !stadiumPlayed)
+                    {
+                        $("#stadium").append("<img src = '" + event.target.src + "' height='300'</img>");
+                        $(event.target).remove();
+                        stadiumPlayed = true;
+                    }
+                    else if (data.card.subtype == "Energy" && !stadiumPlayed)
+                    {
+                        $("#stadium").append("<img src = '" + event.target.src + "' height='300'</img>");
+                        $(event.target).remove();
+                        stadiumPlayed = true;
+                    }
+                    else if (data.card.subtype == "Stadium" && stadiumPlayed); // do nothing
                     else
                         {
                             if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png") && supporterPlayed))
@@ -100,17 +117,32 @@ $(document).ready(function(){
                 }
             });
 
-            if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
-                N();
+            //alert("in function" + discardHandVar);
 
-            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
-                sycamore();
-            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
-                levelball();
-            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
-                ultraball();
-            else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/77.png")
-                draw(6 - $("#hand").children().length)
+            if (discardHandVar == 0) {
+                if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
+                    N();
+                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
+                    sycamore();
+                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
+                    levelball();
+                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
+                    ultraball();
+                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/77.png")
+                    draw(6 - $("#hand").children().length)
+                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/92.png")
+                    trainermail();
+                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/102.png")
+                    maxelixir();
+            }
+            else
+                discardHandVar++;
+
+            if (discardHandVar == 3) {
+                //alert("HEYOO!");
+                searchDeck();
+                discardHandVar = 0;
+            }
         }
 
         updateDebug();
@@ -130,9 +162,9 @@ function play()
   prizes = [];
   discardCount = 0;
   ifBasic = false;
-  repeat = false;
   activeFilled = false;
   supporterPlayed = false;
+  var repeat = false;
 
   while(!ifBasic)
   {
@@ -165,7 +197,6 @@ function play()
 function parse()
 {
     var lines = document.getElementById('deckIn').value.split('\n');
-   setCookie();
 
    var badLine = false;
 

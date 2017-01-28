@@ -5,6 +5,7 @@ function parseCache(name)
     //alert("Lines length: " + globalLines.length + "lines[0]: " + globalLines[0]);
 
     //alert(lines);
+    //lines = lines.split(' ').join('_');
     lines = lines.split('~').join('\n');
     lines = lines.split(name + '=').join('');
 
@@ -15,7 +16,7 @@ function parseCache(name)
 
 var printCache = function(){
     for (var i = 0; i < localStorage.length; i++)
-        $('#cookies').append("<div>" + localStorage.key(i).split('_').join(' ') + "</div>");
+        $('#cookies').append("<div>" + localStorage.key(i) + "</div>");
 
     //for (var i = 0; i < cookies.length; i++)
         //$('#cookies').append("<div>" + cookies[i] + "</div>");

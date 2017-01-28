@@ -7,13 +7,15 @@ function card (name, set, setNo) {
 var deck = [];
 var prizes = [];
 var supporterPlayed = false;
+var energyPlayed = false;
+var stadiumPlayed = false;
 var ifBasic;
 
 var discardCount;
 var activeFilled;
 //var script;
 var param = 1;
-var discardHand = 0;
+var discardHandVar = 0;
 
 var triggerpos;
 

@@ -4,14 +4,24 @@
 
 #benched {
 	display: inline;
+	bottom: 0;
+	flex-basis: 100%;
 }
 
 #discard {
 	color: red;
+	display: inline;
 }
 
-#discard {
+.flexbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+#stadium {
+	text-align: right;
 	display: inline;
+	right: 0;
 }
 
 #hand{

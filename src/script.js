@@ -5,13 +5,10 @@ $(document).ready(function(){
     //$("#peek").append("<div>dank</div>");
 
     $("#parsedeck").click(function(){
-	    	alert("doc ready");
         $("textarea").hide();
         $("#cookies").hide();
         $("#save").hide();
-	    	alert("after hide");
         play();
-	    	alert("after play");
     });
 
     $("#save").click(function(){

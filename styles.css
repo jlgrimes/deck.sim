@@ -4,18 +4,11 @@
 
 #benched {
 	display: inline;
-	bottom: 0;
-	flex-basis: 100%;
 }
 
 #discard {
 	color: red;
 	display: inline;
-}
-
-.flexbox {
-	display: flex;
-	justify-content: space-between;
 }
 
 #stadium {

@@ -1,6 +1,5 @@
 $(document).ready(function(){
     //parseCookie();
-	alert();
     printCache();
 
     //$("#peek").append("<div>dank</div>");

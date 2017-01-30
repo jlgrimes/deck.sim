@@ -11,6 +11,10 @@
 	display: inline;
 }
 
+.pokemon {
+	position: relative;
+}
+
 #stadium {
 	text-align: right;
 	display: inline;

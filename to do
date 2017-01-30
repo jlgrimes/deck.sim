@@ -1,3 +1,15 @@
+
+- add option for trainers' mail, elixir, balls to not grab anything
+- vs seeker
+- attach tools
+- attach energy
+    - make max elixir attach instead of put into hand
+- cap bench size
+- lock $(#peek) from allowing #hand to be played
+- make stadium on same line as benched
+- fix ultra ball supporters glitch
+- make switch and escape rope work
 - add support for all different card arts
 - add support for default decks
+- add support for attacks
 - add login support

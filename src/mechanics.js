@@ -91,6 +91,8 @@ function peekDeck(num)
     for (i = 0; i < num; i++)
         $("#peek").append("<div class = 'card'>" + deck[i].name + "</div>");
 
+    $("#peek").append("<div class = 'card'>Whiff</div>");
+
     //alert($('#hand').children().first().nodeName);
     //alert($('#peek').children().first().nodeName);
 }

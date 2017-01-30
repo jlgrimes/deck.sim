@@ -4,6 +4,18 @@ $(document).ready(function(){
 
     //$("#peek").append("<div>dank</div>");
 
+    $(".pokemon").click(function(event){
+        if (energySelect != "") {
+            alert(energySelect);
+            energyPlayed = true;
+            event.target.textContent = energySelect;
+            alert(event.target.textContent);
+            energySelect = "";
+        }
+        else
+            alert("no energy select");
+    });
+
     $("#parsedeck").click(function(){
         $("textarea").hide();
         $("#cookies").hide();
@@ -14,43 +26,54 @@ $(document).ready(function(){
     $("#save").click(function(){
         setCache();
         alert("Deck saved!");
-        //alert(getCookie("deck"));
+        //$("#cookies").hide();
+        //printCache();
     });
 
     $("#peek").on("click", "div", function(event) {
-      var index = $(this).index();
-      var valid = true;
-      //alert(index);
-      //alert(decktopic((this).index()));
 
-      var url = decktojson(index);
-      var pic = jsontopic(url);
-
-      //alert(url);
-      //alert(pic);
-
-      $.ajax({
-        async: false,
-        url: url,
-        success: function(data) {
-            if (!eval(param))
-                valid = false
-
-            if (valid)
-                $("#hand").append("<img src = '" + pic + "' height='300'</img>");
+        if (event.target.innerHTML == "Whiff") {
+            shuffle(deck);
+            $("#peek").empty();
+            updateDebug();
+            param = 1;
         }
-        });
+        else {
+            var index = $(this).index();
+            var valid = true;
+            //alert(index);
+            //alert(decktopic((this).index()));
 
-      if (valid) {
-          deck.splice($(this).index(), 1);
-          shuffle(deck);
-          $("#peek").empty();
-          updateDebug();
-          param = 1;
-      }
-      else {
-          alert("Invalid card.");
-      }
+            var url = decktojson(index);
+            var pic = jsontopic(url);
+
+            //alert(url);
+            //alert(pic);
+
+            $.ajax({
+                async: false,
+                url: url,
+                success: function (data) {
+                    if (!eval(param))
+                        valid = false
+
+                    if (valid)
+                        $("#hand").append("<img src = '" + pic + "' height='300'</img>");
+                }
+            });
+
+            if (valid) {
+                deck.splice($(this).index(), 1);
+                shuffle(deck);
+                $("#peek").empty();
+                updateDebug();
+                param = 1;
+            }
+            else {
+                alert("Invalid card.");
+            }
+        }
+
     });
 
     $("#cookies").click(function(event) {
@@ -70,7 +93,7 @@ $(document).ready(function(){
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
                     {
                         activeFilled = true;
-                        $("#active").append("<img src = '" + event.target.src + "' height='300'</img>");
+                        $("#active").append("<img src = '" + event.target.src + "' class='pokemon' height='300'</img>");
                         $(event.target).remove();
 
                         dealPrizes();
@@ -88,7 +111,7 @@ $(document).ready(function(){
                 success: function(data) {
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
                     {
-                        $("#benched").append("<img src = '" + event.target.src + "' height='250'</img>");
+                        $("#benched").append("<img src = '" + event.target.src + "' class='pokemon' height='250'</img>");
                         $(event.target).remove();
                     }
 
@@ -98,16 +121,17 @@ $(document).ready(function(){
                         $(event.target).remove();
                         stadiumPlayed = true;
                     }
-                    else if (data.card.subtype == "Energy" && !stadiumPlayed)
-                    {
-                        $("#stadium").append("<img src = '" + event.target.src + "' height='300'</img>");
-                        $(event.target).remove();
-                        stadiumPlayed = true;
-                    }
                     else if (data.card.subtype == "Stadium" && stadiumPlayed); // do nothing
+                    else if (data.card.supertype == "Energy" && !energyPlayed)
+                    {
+                        energySelect = data.card.name;
+                        energyPlayed = true;
+                        $(event.target).remove();
+                    }
+                    else if (data.card.supertype == "Energy" && energyPlayed); // do nothing
                     else
                         {
-                            if (!((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png") && supporterPlayed))
+                            if (!(data.card.subtype == "Supporter" && supporterPlayed))
                             {
                                 $(event.target).remove();
                                 $("#discard").append("<img src = '" + event.target.src + "' height='150'</img>");
@@ -259,6 +283,16 @@ function pictojson(url){
   url = url.replace('/','-');
 
   return ("https://api.pokemontcg.io/v1/cards/" + url);
+}
+
+function pictoname(url){
+    $.ajax({
+        async: false,
+        url: url,
+        success: function (data) {
+            return data.card.name;
+        }
+    });
 }
 
 function decktojson(pos)

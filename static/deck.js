@@ -7,6 +7,7 @@ function card (name, set, setNo) {
 var deck = [];
 var prizes = [];
 var supporterPlayed = false;
+var energySelect = "";
 var energyPlayed = false;
 var stadiumPlayed = false;
 var ifBasic;

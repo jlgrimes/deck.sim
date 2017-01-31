@@ -6,10 +6,14 @@ $(document).ready(function(){
 
     $(".pokemon").click(function(event){
         if (energySelect != "") {
-            alert(energySelect);
             energyPlayed = true;
-            event.target.textContent = energySelect;
-            alert(event.target.textContent);
+            alert(energySelect);
+
+            var pos = $(event.target).position();
+            alert(pos.left);
+            $(this).append("<img style='position: absolute; left: " + pos.left + "px;' height='100' src = '" + energySelect + "'>");
+
+            energySelect = event.target.src;
             energySelect = "";
         }
         else
@@ -20,6 +24,7 @@ $(document).ready(function(){
         $("textarea").hide();
         $("#cookies").hide();
         $("#save").hide();
+
         play();
     });
 
@@ -93,7 +98,7 @@ $(document).ready(function(){
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
                     {
                         activeFilled = true;
-                        $("#active").append("<img src = '" + event.target.src + "' class='pokemon' height='300'</img>");
+                        $("#active").append("<div class='pokemon'><img height='300' src = '" + event.target.src + "'></div>");
                         $(event.target).remove();
 
                         dealPrizes();
@@ -111,20 +116,21 @@ $(document).ready(function(){
                 success: function(data) {
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
                     {
-                        $("#benched").append("<img src = '" + event.target.src + "' class='pokemon' height='250'</img>");
+                        $("#benched").append("<div class='pokemon'><img style='position: relative' height='250' src = '" + event.target.src + "'>'</div>");
+                        //$("#benched").append("<div class='pokemon'><img src = '" + event.target.src + "' height='250'>dank</div>");
                         $(event.target).remove();
                     }
 
                     else if (data.card.subtype == "Stadium" && !stadiumPlayed)
                     {
-                        $("#stadium").append("<img src = '" + event.target.src + "' height='300'</img>");
+                        $("#stadium").append("<img class = 'pokemon' src = '" + event.target.src + "' height='300'</img>");
                         $(event.target).remove();
                         stadiumPlayed = true;
                     }
                     else if (data.card.subtype == "Stadium" && stadiumPlayed); // do nothing
                     else if (data.card.supertype == "Energy" && !energyPlayed)
                     {
-                        energySelect = data.card.name;
+                        energySelect = event.target.src;
                         energyPlayed = true;
                         $(event.target).remove();
                     }
@@ -179,6 +185,7 @@ function play()
   $("#discard").empty();
   $("#active").empty();
   $("#benched").empty();
+  $("#stadium").empty();
   $("#discard").append("<p id = 'noDiscard'></p>");
 
   document.getElementById("hand").innerHTML = "";
@@ -189,8 +196,12 @@ function play()
   activeFilled = false;
   supporterPlayed = false;
   var repeat = false;
+    energySelect = "";
+    energyPlayed = false;
+    stadiumPlayed = false;
 
-  while(!ifBasic)
+
+    while(!ifBasic)
   {
     deck = [];
     $("#hand").empty();

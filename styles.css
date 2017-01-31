@@ -12,7 +12,7 @@
 }
 
 .pokemon {
-	position: relative;
+	display:inline;
 }
 
 #stadium {

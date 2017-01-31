@@ -22,3 +22,11 @@
 }
 
 #hand {}
+
+body {
+	width: auto;
+	/* background: darkgray; */
+	background-color: #2F2F2F;
+	background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/escheresque_ste.png);
+	background-attachment: fixed;
+}

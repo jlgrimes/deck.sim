@@ -46,5 +46,6 @@ textarea {
 	width: 50%;
 	padding: 1em;
 	margin-bottom: 1em;
-	background: darkgray
+	background: darkgray;
+	opacity: .6;
 }

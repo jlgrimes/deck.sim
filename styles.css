@@ -29,4 +29,22 @@ body {
 	background-color: #2F2F2F;
 	background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/escheresque_ste.png);
 	background-attachment: fixed;
+	margin: 1em
+}
+
+button {
+	background: white;
+	color: black;
+	padding: .5em;
+}
+
+button:focus {
+	outline: 0;
+}
+
+textarea {
+	width: 50%;
+	padding: 1em;
+	margin-bottom: 1em;
+	background: darkgray
 }

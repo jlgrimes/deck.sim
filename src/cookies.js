@@ -1,5 +1,4 @@
-function parseCache(name)
-{
+function parseCache(name) {
     //alert(document.cookie);
     var lines = localStorage.getItem(name);
     //alert("Lines length: " + globalLines.length + "lines[0]: " + globalLines[0]);
@@ -14,12 +13,12 @@ function parseCache(name)
     //deckIn.append(lines[i].toString());
 }
 
-var printCache = function(){
+var printCache = function() {
     for (var i = 0; i < localStorage.length; i++)
         $('#cookies').append("<div>" + localStorage.key(i) + "</div>");
 
     //for (var i = 0; i < cookies.length; i++)
-        //$('#cookies').append("<div>" + cookies[i] + "</div>");
+    //$('#cookies').append("<div>" + cookies[i] + "</div>");
 }
 
 function setCache(name) {

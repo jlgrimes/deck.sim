@@ -180,66 +180,61 @@ $(document).ready(function(){
                 async: false,
                 url: url,
                 success: function(data) {
-                    if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
-                    {
+                    if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon")) {
                         $("#benched").append("<div class='pokemon'><img class='pokemon' style='position: relative' height='" + benchedHeight + "' src = '" + event.target.src + "'>'</div>");
                         //$("#benched").append("<div class='pokemon'><img src = '" + event.target.src + "' height='250'>dank</div>");
                         $(event.target).remove();
                     }
 
-                    else if (data.card.subtype == "Stadium" && !stadiumPlayed)
-                    {
+                    else if (data.card.subtype == "Stadium" && !stadiumPlayed) {
                         $("#stadium").append("<img class = 'pokemon' src = '" + event.target.src + "' height='" + stadiumHeight + "'</img>");
                         $(event.target).remove();
                         stadiumPlayed = true;
                     }
                     else if (data.card.subtype == "Stadium" && stadiumPlayed); // do nothing
-                    else if (data.card.supertype == "Energy" && !energyPlayed)
-                    {
+                    else if (data.card.supertype == "Energy" && !energyPlayed) {
                         energySelect = event.target.src;
                         energyPlayed = true;
                         $("#prompt").html("Which Pokemon would you like to attach the energy to?");
                         $(event.target).remove();
                     }
                     else if (data.card.supertype == "Energy" && energyPlayed); // do nothing
-                    else if (data.card.subtype.indexOf("Tool") >= 0)
-                    {
+                    else if (data.card.subtype.indexOf("Tool") >= 0) {
                         toolSelect = event.target.src;
                         $("#prompt").html("Which Pokemon would you like to attach the tool to?");
                         $(event.target).remove();
                     }
-                    else
-                        {
-                            if (!(data.card.subtype == "Supporter" && supporterPlayed))
-                            {
-                                $(event.target).remove();
-                                $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
-                                discardCount++;
-                            }
+                    else {
+                        if (!(data.card.subtype == "Supporter" && supporterPlayed)) {
+                            $(event.target).remove();
+                            $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
+                            discardCount++;
                         }
+                    }
+
+
+                    if (discardHandVar == 0) {
+                        if (data.card.name == "N" && !supporterPlayed)
+                            N();
+                        else if (data.card.name == "Professor Sycamore" && !supporterPlayed)
+                            sycamore();
+                        else if (data.card.name == "Level Ball")
+                            levelball();
+                        else if (data.card.name == "Ultra Ball")
+                            ultraball();
+                        else if (data.card.name == "Shaymin-EX")
+                            draw(6 - $("#hand").children().length)
+                        else if (data.card.name == "Trainers' Mail")
+                            trainermail();
+                        else if (data.card.name == "Max Elixir")
+                            maxelixir();
+                    }
+                    else
+                        discardHandVar++;
                 }
             });
 
             //alert("in function" + discardHandVar);
-
-            if (discardHandVar == 0) {
-                if ((event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/105.png" || event.target.src == "https://s3.amazonaws.com/pokemontcg/bw5/96.png") && !supporterPlayed)
-                    N();
-                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/107.png" && !supporterPlayed)
-                    sycamore();
-                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy7/76.png")
-                    levelball();
-                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy10/113.png")
-                    ultraball();
-                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/77.png")
-                    draw(6 - $("#hand").children().length)
-                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy6/92.png")
-                    trainermail();
-                else if (event.target.src == "https://s3.amazonaws.com/pokemontcg/xy9/102.png")
-                    maxelixir();
-            }
-            else
-                discardHandVar++;
 
             if (discardHandVar == 3) {
                 //alert("HEYOO!");

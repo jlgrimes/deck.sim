@@ -31,7 +31,7 @@ function draw(num) {
       async: false,
       url: url,
       success: function(data) {
-        $("#hand").append("<img src='" + data.card.imageUrl + "' class='card' height='300'></img>");
+        $("#hand").append("<img src='" + data.card.imageUrl + "' class='card' height='" + handHeight + "'></img>");
         //alert(data.card.supertype)
         if (data.card.supertype.includes("Pok"))
           if (data.card.subtype == "Basic" || data.card.subtype == "EX")
@@ -79,7 +79,7 @@ function discardHand()
   var i;
   for (i = 0; i < handLength; i++)
   {
-    $("#discard").append("<img src = '" + $("#hand img").first().attr("src") + "'height='150'</img>");
+    $("#discard").append("<img src = '" + $("#hand img").first().attr("src") + "'height='" + discardHeight + "'</img>");
     $('#hand').children().first().remove();
     discardCount++;
   }
@@ -93,6 +93,12 @@ function peekDeck(num)
 
     $("#peek").append("<div class = 'card'>Whiff</div>");
 
+    //$('.pokemon').hide();
+    $('.energy').hide();
+    $('.tool').hide();
+
+    $("#prompt").html("Please grab a valid card.");
+
     //alert($('#hand').children().first().nodeName);
     //alert($('#peek').children().first().nodeName);
 }
@@ -102,6 +108,12 @@ function searchDeck()
   var i;
   for (i = 0; i < deck.length; i++)
     $("#peek").append("<div class = 'card'>" + deck[i].name + "</div>");
+
+    //$('.pokemon').hide();
+    $('.energy').hide();
+    $('.tool').hide();
+
+    $("#prompt").html("Search your deck for what you're looking for.");
 
     //alert($('#hand').children().first().nodeName);
     //alert($('#peek').children().first().nodeName);

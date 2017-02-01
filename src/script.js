@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $("#prompt").html("Please enter in a deck list in PTCGO format, or load from a preset.");
+    $("#endturn").hide();
     //parseCookie();
     printCache();
 
@@ -7,17 +9,62 @@ $(document).ready(function(){
     $(".pokemon").click(function(event){
         if (energySelect != "") {
             energyPlayed = true;
-            alert(energySelect);
+            //alert(energySelect);
 
             var pos = $(event.target).position();
-            alert(pos.left);
-            $(this).append("<img style='position: absolute; left: " + pos.left + "px;' height='100' src = '" + energySelect + "'>");
+            var newpos = pos.left;
+            var num = pos.left;
 
-            energySelect = event.target.src;
+            if (num < 0)
+            {
+                newpos += activeEnergy * energyOffset;
+                activeEnergy++;
+            }
+            else
+            {
+                num = Math.floor(num / 179);
+                newpos += benchedEnergy[num] * energyOffset;
+                benchedEnergy[num]++;
+            }
+
+            //alert(pos.left);
+            $(".energy").append("<img style='position: absolute; left: " + newpos + "px; top: " + energyHeightOffset + "px' height='" + energyHeight + "' src = '" + energySelect + "'>");
+
             energySelect = "";
+
+            $("#prompt").html("");
         }
-        else
-            alert("no energy select");
+        else if (toolSelect != "")
+        {
+            var pos = $(event.target).position();
+            var num = pos.left - 215;
+            num = Math.floor(num / 179);
+            var valid = true;
+
+            //alert(toolSelect);
+
+            if (num < 0 && activeTool == 0)
+            {
+                activeTool++;
+            }
+            else if (num >= 0 && benchedTool[num] == 0)
+            {
+                benchedTool[num]++;
+            }
+            else
+                valid = false;
+
+            if (valid) {
+                $(".tool").append("<img style='position: absolute; left: " + pos.left + "px; top: " + toolHeightOffset + "px' height='" + toolHeight + "' src = '" + toolSelect + "'>");
+                toolSelect = "";
+                $("#prompt").html("");
+            }
+            else
+                alert("This Pokemon already has a tool silly!");
+        }
+        //else
+            //alert("no energy select");
+
     });
 
     $("#parsedeck").click(function(){
@@ -26,6 +73,14 @@ $(document).ready(function(){
         $("#save").hide();
 
         play();
+    });
+
+    $("#endturn").click(function(){
+        turnNo++;
+        updateDebug();
+        supporterPlayed = false;
+        energyPlayed = false;
+        draw(1);
     });
 
     $("#save").click(function(){
@@ -62,8 +117,13 @@ $(document).ready(function(){
                     if (!eval(param))
                         valid = false
 
-                    if (valid)
-                        $("#hand").append("<img src = '" + pic + "' height='300'</img>");
+                    if (valid) {
+                        if (elixir){
+                            energySelect = pic;
+                        }
+                        else
+                            $("#hand").append("<img src = '" + pic + "' height='300'</img>");
+                    }
                 }
             });
 
@@ -78,7 +138,11 @@ $(document).ready(function(){
                 alert("Invalid card.");
             }
         }
+        $("#prompt").html("");
 
+        $('.pokemon').show();
+        $('.energy').show();
+        $('.tool').show();
     });
 
     $("#cookies").click(function(event) {
@@ -98,7 +162,7 @@ $(document).ready(function(){
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
                     {
                         activeFilled = true;
-                        $("#active").append("<div class='pokemon'><img height='300' src = '" + event.target.src + "'></div>");
+                        $("#active").append("<div class='pokemon'><img height='" + activeHeight + "' src = '" + event.target.src + "'></div>");
                         $(event.target).remove();
 
                         dealPrizes();
@@ -107,6 +171,8 @@ $(document).ready(function(){
                     }
                 }
             })
+
+            $("#prompt").html("");
         }
         else
         {
@@ -116,14 +182,14 @@ $(document).ready(function(){
                 success: function(data) {
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon"))
                     {
-                        $("#benched").append("<div class='pokemon'><img style='position: relative' height='250' src = '" + event.target.src + "'>'</div>");
+                        $("#benched").append("<div class='pokemon'><img class='pokemon' style='position: relative' height='" + benchedHeight + "' src = '" + event.target.src + "'>'</div>");
                         //$("#benched").append("<div class='pokemon'><img src = '" + event.target.src + "' height='250'>dank</div>");
                         $(event.target).remove();
                     }
 
                     else if (data.card.subtype == "Stadium" && !stadiumPlayed)
                     {
-                        $("#stadium").append("<img class = 'pokemon' src = '" + event.target.src + "' height='300'</img>");
+                        $("#stadium").append("<img class = 'pokemon' src = '" + event.target.src + "' height='" + stadiumHeight + "'</img>");
                         $(event.target).remove();
                         stadiumPlayed = true;
                     }
@@ -132,15 +198,22 @@ $(document).ready(function(){
                     {
                         energySelect = event.target.src;
                         energyPlayed = true;
+                        $("#prompt").html("Which Pokemon would you like to attach the energy to?");
                         $(event.target).remove();
                     }
                     else if (data.card.supertype == "Energy" && energyPlayed); // do nothing
+                    else if (data.card.subtype.indexOf("Tool") >= 0)
+                    {
+                        toolSelect = event.target.src;
+                        $("#prompt").html("Which Pokemon would you like to attach the tool to?");
+                        $(event.target).remove();
+                    }
                     else
                         {
                             if (!(data.card.subtype == "Supporter" && supporterPlayed))
                             {
                                 $(event.target).remove();
-                                $("#discard").append("<img src = '" + event.target.src + "' height='150'</img>");
+                                $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
                                 discardCount++;
                             }
                         }
@@ -186,7 +259,12 @@ function play()
   $("#active").empty();
   $("#benched").empty();
   $("#stadium").empty();
+  $(".energy").empty();
   $("#discard").append("<p id = 'noDiscard'></p>");
+  $("#prompt").html("");
+  $("#endturn").show();
+
+    turnNo = 0;
 
   document.getElementById("hand").innerHTML = "";
 
@@ -220,7 +298,8 @@ function play()
     repeat = true;
   }
 
-  alert("Please choose an Active Pokemon.");
+  $("#prompt").html("Please choose an Active Pokemon.");
+  //alert("Please choose an Active Pokemon.");
 
   //deal(1);
 
@@ -348,6 +427,7 @@ function findtrigger(index)
 
 function updateDebug()
 {
+    $("#turn").html("Turn " + turnNo);
   document.getElementById("deckSize").innerHTML = "Deck: " + deck.length;
   document.getElementById("remainingPrizes").innerHTML = "Prizes: " + prizes.length;
   document.getElementById("noDiscard").innerHTML = "Discard: " + discardCount;

@@ -3,6 +3,7 @@
   <head>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="static/deck.js"></script>
+      <script src="static/constants.js"></script>
       <script src="static/set_conversions.js"></script>
       <script src="static/energy_conversions.js"></script>
       <script src="src/trainers.js"></script>
@@ -12,17 +13,24 @@
     <link rel="stylesheet" href="styles.css">
   </head>
 
-<div>
-
-    <button type="button" id="save">save deck</button>
+<body>
 
     <div id = "cookies"></div>
 
-    <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 45 cols = 60></textarea>
+    <button type="button" id="parsedeck">New Game!</button>
+    <button type="button" id="endturn">End Turn</button>
 
-    <button type="button" id="parsedeck">parse deck</button>
+    <div class="debug">
+        <p class = "debugElement" id="turn"></p>
+        <p class = "debugElement" id="deckSize"></p>
+        <p class = "debugElement" id="remainingPrizes"></p>
+    </div>
 
-    <div id = "prompt"></div>
+    <h2 id = "prompt"></h2>
+
+    <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 40 cols = 60></textarea>
+
+    <button type="button" id="save">Save Deck</button>
 
     <div id = "peek"></div>
 
@@ -35,13 +43,11 @@
         <div id = "stadium"></div>
     </div>
 
+    <div class ="energy"></div>
+    <div class ="tool"></div>
+
     <div id = "hand" align = center></div>
     <div id ="discard"></div>
-
-    <div id="debug">
-  	<p id="deckSize"></p>
-  	<p id="remainingPrizes"></p>
-  </div>
   
 </body>
   

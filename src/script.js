@@ -90,6 +90,29 @@ $(document).ready(function(){
         //printCache();
     });
 
+    $("#discard").click(function(event){
+        if (vsSeeker)
+        {
+            var url = pictojson(event.target.src);
+
+                $.ajax({
+                    async: false,
+                    url: url,
+                    success: function(data) {
+                        if (data.card.subtype == "Supporter")
+                        {
+                            $("#hand").append("<img src = '" + event.target.src + "' height='" + handHeight + "'</img>");
+                            $(event.target).remove();
+                            vsSeeker = false;
+                            $("#prompt").html("");
+                        }
+                        else
+                            alert("Invalid card!");
+                    }
+                })
+        }
+    });
+
     $("#peek").on("click", "div", function(event) {
 
         if (event.target.innerHTML == "Whiff") {
@@ -122,7 +145,7 @@ $(document).ready(function(){
                             energySelect = pic;
                         }
                         else
-                            $("#hand").append("<img src = '" + pic + "' height='300'</img>");
+                            $("#hand").append("<img src = '" + pic + "' height='" + handHeight + "'</img>");
                     }
                 }
             });
@@ -228,6 +251,8 @@ $(document).ready(function(){
                             trainermail();
                         else if (data.card.name == "Max Elixir")
                             maxelixir();
+                        else if (data.card.name == "VS Seeker")
+                            vsseeker();
                     }
                     else
                         discardHandVar++;

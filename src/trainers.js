@@ -37,3 +37,9 @@ function maxelixir()
     peekDeck(6);
     param = "data.card.supertype == 'Energy' && data.card.subtype == 'Basic'";
 }
+
+function vsseeker()
+{
+	vsSeeker = true;
+    $("#prompt").html("Please grab a supporter from your discard pile.");
+}

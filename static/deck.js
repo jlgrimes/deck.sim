@@ -28,6 +28,7 @@ var activeEnergy = 0;
 var benchedEnergy = [0, 0, 0, 0, 0];
 
 var elixir = false;
+var vsSeeker = false;
 
 var triggerpos;
 

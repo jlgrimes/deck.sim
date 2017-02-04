@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="CSS Overhaul + Sun and Moon support!!">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portfolio/cabin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portfolio/cake.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portfolio/circus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portfolio/game.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portfolio/safe.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portfolio/submarine.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/profile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/freelancer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/freelancer.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/contact_me.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/freelancer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/freelancer.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jqBootstrapValidation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/freelancer.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mail/contact_me.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/probability.html" />
+    <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/animated.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/bordered-pulled.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/core.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/fixed-width.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/font-awesome.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/icons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/larger.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/list.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/path.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/rotated-flipped.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/screen-reader.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/stacked.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/less/variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_animated.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_bordered-pulled.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_fixed-width.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_larger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_path.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_rotated-flipped.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_screen-reader.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_stacked.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/font-awesome/scss/font-awesome.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jquery/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/jquery/jquery.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -314,7 +340,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="less" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deck.sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deck.sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deck.sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deck.sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -453,7 +507,7 @@
       <workItem from="1485878577534" duration="10764000" />
       <workItem from="1485964376023" duration="3551000" />
       <workItem from="1486048459321" duration="3107000" />
-      <workItem from="1486137441743" duration="4042000" />
+      <workItem from="1486137441743" duration="4139000" />
     </task>
     <task id="LOCAL-00001" summary="dank cookies added">
       <created>1485443594150</created>
@@ -560,11 +614,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486172341703</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="may have forgot to upload new files...">
+      <created>1486172520362</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1486172520362</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65252000" />
+    <option name="totallyTimeSpent" value="65349000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -620,7 +681,8 @@
     <MESSAGE value="Added universal compatibility to the cards that already exist!" />
     <MESSAGE value="Added VS Seeker, Ultra Ball glitch fixed..?" />
     <MESSAGE value="CSS Overhaul + Sun and Moon support!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS Overhaul + Sun and Moon support!!" />
+    <MESSAGE value="may have forgot to upload new files..." />
+    <option name="LAST_COMMIT_MESSAGE" value="may have forgot to upload new files..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

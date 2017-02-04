@@ -62,6 +62,38 @@ $(document).ready(function(){
             else
                 alert("This Pokemon already has a tool silly!");
         }
+        else if (evolvingPokemon != "")
+        {
+            var pos = $(event.target).position();
+            var num = pos.left - 215;
+            num = Math.floor(num / 179);
+            var valid = false;
+
+            if (num < 0 && activeTurn < turnNo)
+                valid = true;
+
+            else if (num >= 0 && benchedTurn[num] < turnNo)
+                valid = true;
+
+            if (valid) {
+                var url = $(event.target).attr('src');
+                url = pictojson(url);
+                //alert(url);
+                $.ajax({
+                    async: false,
+                    url: url,
+                    success: function (data) {
+                        //alert(data.card.name + data.card.nationalPokedexNumber);
+                        if (evolvingPokemonNo == data.card.nationalPokedexNumber + 1)
+                            $(event.target).attr('src', evolvingPokemon);
+                        else
+                            alert("Sorry, " + data.card.name + " doesn't evolve into " + evolvingPokemonName + ".");
+                    }
+                })
+            }
+            else
+                alert("You can't evolve on this turn.");
+        }
         //else
             //alert("no energy select");
 
@@ -81,6 +113,8 @@ $(document).ready(function(){
         supporterPlayed = false;
         energyPlayed = false;
         draw(1);
+
+        //alert("activeTurn: " + activeTurn + " benchedTurn: " + benchedTurn)
     });
 
     $("#save").click(function(){
@@ -178,6 +212,8 @@ $(document).ready(function(){
 
         if (!activeFilled)
         {
+            activeTurn = turnNo;
+
             $.ajax({
                 async: false,
                 url: url,
@@ -191,11 +227,11 @@ $(document).ready(function(){
                         dealPrizes();
                         draw(1);
                         updateDebug();
+
+                        $("#prompt").html("");
                     }
                 }
             })
-
-            $("#prompt").html("");
         }
         else
         {
@@ -203,12 +239,23 @@ $(document).ready(function(){
                 async: false,
                 url: url,
                 success: function(data) {
-                    if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon")) {
+                    if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon") && $("#benched").children().length < benchSize) {
+                        benchedTurn[$("#benched").children().length] = turnNo;
+
                         $("#benched").append("<div class='pokemon'><img class='pokemon' style='position: relative' height='" + benchedHeight + "' src = '" + event.target.src + "'>'</div>");
                         //$("#benched").append("<div class='pokemon'><img src = '" + event.target.src + "' height='250'>dank</div>");
                         $(event.target).remove();
                     }
+                    else if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon") && $("#benched").children().length >= benchSize);
 
+                    else if (data.card.subtype.indexOf("Stage") >= 0)
+                    {
+                        evolvingPokemon = event.target.src;
+                        evolvingPokemonNo = data.card.nationalPokedexNumber;
+                        $("#prompt").html("Which Pokemon would you like to evolve into " + data.card.name + "?");
+                        $(event.target).remove();
+                        evolvingPokemonName = data.card.name;
+                    }
                     else if (data.card.subtype == "Stadium" && !stadiumPlayed) {
                         $("#stadium").append("<img class = 'pokemon' src = '" + event.target.src + "' height='" + stadiumHeight + "'</img>");
                         $(event.target).remove();
@@ -218,7 +265,7 @@ $(document).ready(function(){
                     else if (data.card.supertype == "Energy" && !energyPlayed) {
                         energySelect = event.target.src;
                         energyPlayed = true;
-                        $("#prompt").html("Which Pokemon would you like to attach the energy to?");
+                        $("#prompt").html("Which Pokemon would you like to attach the " + data.card.name + " to?");
                         $(event.target).remove();
                     }
                     else if (data.card.supertype == "Energy" && energyPlayed); // do nothing
@@ -226,6 +273,18 @@ $(document).ready(function(){
                         toolSelect = event.target.src;
                         $("#prompt").html("Which Pokemon would you like to attach the tool to?");
                         $(event.target).remove();
+                    }
+                    else if ($("#prompt").html().indexOf("discard") >= 0 && data.card.subtype == "Supporter" && supporterPlayed)
+                    {
+                        $(event.target).remove();
+                        $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
+                        discardCount++;
+                    }
+                    else if ($("#prompt").html().indexOf("discard") >= 0 && data.card.supertype == "Energy" && energyPlayed)
+                    {
+                        $(event.target).remove();
+                        $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
+                        discardCount++;
                     }
                     else {
                         if (!(data.card.subtype == "Supporter" && supporterPlayed)) {

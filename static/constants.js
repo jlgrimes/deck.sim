@@ -10,3 +10,5 @@ var toolHeight = 100; // px
 
 var toolHeightOffset = 140; // px
 var energyHeightOffset = 240; // px
+
+var benchSize = 5;

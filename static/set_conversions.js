@@ -7,7 +7,7 @@ function setConvert(abbr){
 		return "xy10";
 	else if (abbr == "GEN")
 		return "g1";
-	else if (abbr == "BKP")
+	else if (abbr == "BKP" || abbr == "BRP")
 		return "xy9";
 	else if (abbr == "BKT")
 		return "xy8";
@@ -55,4 +55,6 @@ function setConvert(abbr){
 		return "bw2";
 	else if (abbr == "BLW")
 		return "bw1";
+    else if (abbr == "SM" || abbr == "SAM" || abbr == "SUM")
+        return "sm1";
 }

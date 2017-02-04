@@ -1,3 +1,31 @@
+
+body {
+	width: auto;
+	/* background: darkgray; */
+	padding-top: 80px;
+}
+
+@media (min-width: 768px) {
+	.navbar-custom {
+		padding: 10px 0;
+		-webkit-transition: padding 0.3s;
+		-moz-transition: padding 0.3s;
+		transition: padding 0.3s;
+	}
+	.navbar-custom .navbar-brand {
+		font-size: 2em;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	.navbar-custom.affix {
+		padding: 10px 0;
+	}
+	.navbar-custom.affix .navbar-brand {
+		font-size: 1.5em;
+	}
+}
+
 #active {
 	display: inline;
 }

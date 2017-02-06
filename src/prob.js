@@ -1,11 +1,3 @@
-$(document).ready(function() {
-
-    $("#cookies").click(function() {
-        parse();
-        alert((1 - hypergeometric(4, 60, 7, 0)) * 100 + "%");
-    });
-});
-
 function binomial(n, k) {
     if ((typeof n !== 'number') || (typeof k !== 'number'))
         return false;

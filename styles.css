@@ -26,6 +26,11 @@ body {
 	}
 }
 
+.results p {
+	display: inline-block;
+	vertical-align: top;
+}
+
 #active {
 	display: inline;
 }

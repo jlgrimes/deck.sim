@@ -123,13 +123,15 @@ function drawProb() {
         temp = 1;
         $('.multilineResults').append("<div>");
 
-        for (var j = 0; j < combinations[i].length; j++) // loops through the selected combination
-        {
-            $('.multilineResults').append(newBasics[combinations[i][j]].name + ", ");
-            temp *= odds[combinations[i][j]];
-        }
+        if (combinations[i].length <= 7) {
+            for (var j = 0; j < combinations[i].length; j++) // loops through the selected combination
+            {
+                $('.multilineResults').append(newBasics[combinations[i][j]].name + ", ");
+                temp *= odds[combinations[i][j]];
+            }
 
-        $('.multilineResults').append(temp * 100 + "%<\div>");
+            $('.multilineResults').append(temp * 100 + "%<\div>");
+        }
     }
 /*
     for (i = 0; i < newBasics.length - 1; i++) {

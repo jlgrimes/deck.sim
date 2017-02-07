@@ -1,7 +1,9 @@
 $(document).ready(function() {
-    $('#deckIn').hide();
+    //$('#deckIn').hide();
 
     $("#cookies").click(function() {
+        $('#deckIn').hide();
+        $('.result').empty();
         parseCache(event.target.innerHTML);
         parseProb();
         drawProb();
@@ -92,10 +94,67 @@ function drawProb() {
     }
     $('.multilineResults').html("");
 
+    odds = [];
+
     for (i = 0; i < newBasics.length; i++) {
         var tempNum = parseInt(newBasics[i].num);
-        $('.multilineResults').append("<p>" + newBasics[i].name + ": " + (1 - hypergeometric(tempNum, 60, 7, 0)) * 100 + "%" + "<\p>");
+        var tempProb = hypergeometric(tempNum, 60, 7);
+        $('.multilineResults').append("<p>" + newBasics[i].name + ": " + (tempProb * 100) + "%" + "<\p>");
+        odds.push(tempProb);
     }
+
+    $('.multilineResults').append("<p><br><\p>");
+
+    someNumbers = [];
+
+    for (i = 0; i < newBasics.length; i++)
+        someNumbers.push(i);
+
+    var combinations = combine(someNumbers, 2);
+    var temp;
+
+    for (i = 0; i < combinations.length; i++) // loops through every combination
+    {
+        temp = 1;
+        $('.multilineResults').append("<div>");
+
+        for (var j = 0; j < combinations[i].length; j++) // loops through the selected combination
+        {
+            $('.multilineResults').append(newBasics[combinations[i][j]].name + ", ");
+            temp *= odds[combinations[i][j]];
+        }
+
+        $('.multilineResults').append(temp + "<\div>");
+    }
+/*
+    for (i = 0; i < newBasics.length - 1; i++) {
+        for (var j = i + 1; j < newBasics.length; j++) {
+            var oddsProduct = odds[i] * odds[j] * 100;
+            $('.multilineResults').append("<div>" + newBasics[i].name + ", " + newBasics[j].name + ": " + oddsProduct + "%" + "<\div>");
+        }
+    }
+    */
+}
+
+var combine = function(a, min) {
+    var fn = function(n, src, got, all) {
+        if (n == 0) {
+            if (got.length > 0) {
+                all[all.length] = got;
+            }
+            return;
+        }
+        for (var j = 0; j < src.length; j++) {
+            fn(n - 1, src.slice(j + 1), got.concat([src[j]]), all);
+        }
+        return;
+    }
+    var all = [];
+    for (var i = min; i < a.length; i++) {
+        fn(i, a, [], all);
+    }
+    all.push(a);
+    return all;
 }
 
 function binomial(n, k) {
@@ -107,7 +166,15 @@ function binomial(n, k) {
     return coeff;
 }
 
-function hypergeometric(X, Y, Z, n)
+function hypergeometric(m, N, n)
 {
-    return (binomial(X, n) * binomial((Y-X), (Z-n)) / binomial(Y, Z));
+    // N = 60 cards in deck, n = subject size (7 for hand, 6 for prize)
+    // m = number of subject in deck (4 for playset), i = 1
+
+    var prob = 0;
+    for (var i = 1; i < 5; i++) {
+        prob = prob + (binomial(m, i) * binomial((N - m), (n - i)) / binomial(N, n));
+        //alert(prob);
+    }
+    return prob;
 }

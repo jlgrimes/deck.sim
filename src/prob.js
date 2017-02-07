@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    //$('#deckIn').hide();
+    $('#deckIn').hide();
 
     $("#cookies").click(function() {
-        $('#deckIn').hide();
+        //$('#deckIn').hide();
         $('.result').empty();
         parseCache(event.target.innerHTML);
         parseProb();
@@ -96,6 +96,9 @@ function drawProb() {
 
     odds = [];
 
+    //$('#text').hide();
+    $('.multilineResults').append("<h3>Chances of starting with a specific Pokemon<\h3>");
+
     for (i = 0; i < newBasics.length; i++) {
         var tempNum = parseInt(newBasics[i].num);
         var tempProb = hypergeometric(tempNum, 60, 7);
@@ -104,6 +107,8 @@ function drawProb() {
     }
 
     $('.multilineResults').append("<p><br><\p>");
+
+    $('.multilineResults').append("<h3>Chances of starting with multiple Pokemon<\h3>");
 
     someNumbers = [];
 
@@ -124,7 +129,7 @@ function drawProb() {
             temp *= odds[combinations[i][j]];
         }
 
-        $('.multilineResults').append(temp + "<\div>");
+        $('.multilineResults').append(temp * 100 + "%<\div>");
     }
 /*
     for (i = 0; i < newBasics.length - 1; i++) {

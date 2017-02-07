@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $("#prompt").html("Please enter in a deck list in PTCGO format, or load from a preset.");
     $("#endturn").hide();
     //parseCookie();
     printCache();

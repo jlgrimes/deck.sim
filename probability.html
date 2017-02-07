@@ -75,10 +75,7 @@
 </head>
 
 <body>
-
-<p>If you haven't made a deck yet, go ahead to <a href="test.html">here</a> to make one. It should show up right below.</p>
-
-    <div id = "cookies"></div>
+<h1>Quick Calculations</h1>
     <div id="start" class="abutton">
         <button onclick="$('.result').html((hypergeometric(1, 60, 7)) * 100 + '%')">Starting with a card you play 1 of</button>
         <button onclick="$('.result').html((hypergeometric(2, 60, 7)) * 100 + '%')">Starting with a card you play 2 of</button>
@@ -94,14 +91,17 @@
     </div>
 
     <div class="results">
-        <p>Odds of selected: </p>
-        <p class="result"></p>
+        <h3 id="text">Odds of selected: </h3>
+        <h3 class="result"></h3>
     </div>
+<h1>Odds of Starting with Pokemon</h1>
+<p>If you haven't made a deck yet, go ahead to <a href="test.html">here</a> to make one. It should show up right below.</p>
 
-    <div class="multilineResults">
-    </div>
+    <div id = "cookies"></div>
 
     <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 25 cols = 60></textarea>
 
-<button type="button" id="save">Save Deck</button>
+<div class="multilineResults">
+</div>
+
 </body>

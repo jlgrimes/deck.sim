@@ -4,7 +4,9 @@
     <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/probability.html" afterPath="$PROJECT_DIR$/probability.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mechanics.js" afterPath="$PROJECT_DIR$/src/mechanics.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/prob.js" afterPath="$PROJECT_DIR$/src/prob.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/deck.js" afterPath="$PROJECT_DIR$/static/deck.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles.css" afterPath="$PROJECT_DIR$/styles.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="probability.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/probability.html">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="-74">
+              <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/styles.css">
+      <file leaf-file-name="probability.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/probability.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+            <state relative-caret-position="158">
+              <caret line="78" column="119" lean-forward="false" selection-start-line="78" selection-start-column="119" selection-end-line="78" selection-end-column="119" />
               <folding />
             </state>
           </provider>
@@ -49,18 +51,28 @@
       <file leaf-file-name="prob.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prob.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="242">
+              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.html">
+      <file leaf-file-name="deck.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/deck.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="77" column="4" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="30" />
+            <state relative-caret-position="154">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mechanics.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mechanics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="36" column="74" lean-forward="false" selection-start-line="36" selection-start-column="74" selection-end-line="36" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -69,8 +81,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="276" column="46" lean-forward="false" selection-start-line="276" selection-start-column="42" selection-end-line="276" selection-end-column="46" />
+            <state relative-caret-position="36">
+              <caret line="409" column="8" lean-forward="true" selection-start-line="409" selection-start-column="8" selection-end-line="409" selection-end-column="60" />
               <folding>
                 <marker date="1486179599218" expanded="true" signature="903:921" ph="..." />
                 <marker date="1486179599218" expanded="true" signature="903:929" ph="..." />
@@ -80,6 +92,36 @@
                 <marker date="1486179599218" expanded="true" signature="7560:7578" ph="..." />
                 <marker date="1486179599218" expanded="true" signature="7580:7610" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trainers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trainers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1980">
+              <caret line="90" column="4" lean-forward="false" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="95" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,7 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>alert()</find>
       <find>supporter</find>
       <find>event.t</find>
       <find>energyse</find>
@@ -136,6 +177,7 @@
       <find>18b</find>
       <find>html()</find>
       <find>html</find>
+      <find>$</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,7 +190,6 @@
         <option value="$PROJECT_DIR$/decks/Chris_Siakala_Turbo_Dark" />
         <option value="$PROJECT_DIR$/src/cookies.js" />
         <option value="$PROJECT_DIR$/static/energy_conversions.js" />
-        <option value="$PROJECT_DIR$/src/mechanics.js" />
         <option value="$PROJECT_DIR$/to do" />
         <option value="$PROJECT_DIR$/src/trainers.js" />
         <option value="$PROJECT_DIR$/pages/probability.html" />
@@ -156,14 +197,15 @@
         <option value="$PROJECT_DIR$/mail/contact_me.php" />
         <option value="$PROJECT_DIR$/static/set_conversions.js" />
         <option value="$PROJECT_DIR$/static/constants.js" />
-        <option value="$PROJECT_DIR$/static/deck.js" />
         <option value="$PROJECT_DIR$/src/script.js" />
         <option value="$PROJECT_DIR$/css/freelancer.css" />
         <option value="$PROJECT_DIR$/css/freelancer.min.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/src/prob.js" />
+        <option value="$PROJECT_DIR$/src/mechanics.js" />
+        <option value="$PROJECT_DIR$/static/deck.js" />
         <option value="$PROJECT_DIR$/styles.css" />
+        <option value="$PROJECT_DIR$/src/prob.js" />
         <option value="$PROJECT_DIR$/probability.html" />
       </list>
     </option>
@@ -177,7 +219,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1938" />
+    <option name="width" value="1932" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
@@ -195,7 +237,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,6 +312,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,7 +438,9 @@
       <workItem from="1486303925895" duration="891000" />
       <workItem from="1486331807823" duration="1085000" />
       <workItem from="1486339776415" duration="92000" />
-      <workItem from="1486346273242" duration="1173000" />
+      <workItem from="1486346273242" duration="2593000" />
+      <workItem from="1486421571043" duration="1603000" />
+      <workItem from="1486423623019" duration="2626000" />
     </task>
     <task id="LOCAL-00001" summary="dank cookies added">
       <created>1485443594150</created>
@@ -538,11 +582,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486339808514</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="some probability">
+      <created>1486347470740</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1486347470740</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76098000" />
+    <option name="totallyTimeSpent" value="81747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -554,10 +605,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20994183" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20954907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -603,7 +654,8 @@
     <MESSAGE value="Added evolution - EXTREMELY UNSTABLE&#10;Also allowed discarding of Supporters and Energy with Ultra Ball when you've already played one for the turn" />
     <MESSAGE value="Modifications to CSS. Maybe I should actually work on things :/" />
     <MESSAGE value="Final commit. Quitting Pokemon for the time being." />
-    <option name="LAST_COMMIT_MESSAGE" value="Final commit. Quitting Pokemon for the time being." />
+    <MESSAGE value="some probability" />
+    <option name="LAST_COMMIT_MESSAGE" value="some probability" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -896,38 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mechanics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trainers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/deck.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/portfolio/cabin.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -970,10 +990,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="90" column="4" lean-forward="false" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trainers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/deck.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mechanics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="36" column="74" lean-forward="false" selection-start-line="36" selection-start-column="74" selection-end-line="36" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="276" column="46" lean-forward="false" selection-start-line="276" selection-start-column="42" selection-end-line="276" selection-end-column="46" />
+        <state relative-caret-position="36">
+          <caret line="409" column="8" lean-forward="true" selection-start-line="409" selection-start-column="8" selection-end-line="409" selection-end-column="60" />
           <folding>
             <marker date="1486179599218" expanded="true" signature="903:921" ph="..." />
             <marker date="1486179599218" expanded="true" signature="903:929" ph="..." />
@@ -988,32 +1048,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+        <state relative-caret-position="-74">
+          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/prob.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="77" column="4" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="30" />
+        <state relative-caret-position="242">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/probability.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="158">
+          <caret line="78" column="119" lean-forward="false" selection-start-line="78" selection-start-column="119" selection-end-line="78" selection-end-column="119" />
           <folding />
         </state>
       </provider>

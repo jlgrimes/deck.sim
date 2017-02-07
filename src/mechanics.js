@@ -34,16 +34,13 @@ function draw(num) {
         $("#hand").append("<img src='" + data.card.imageUrl + "' class='card' height='" + handHeight + "'></img>");
         //alert(data.card.supertype)
         if (data.card.supertype.includes("Pok"))
-          if (data.card.subtype == "Basic" || data.card.subtype == "EX")
-            ifBasic = true;
+          if (data.card.subtype == "Basic" || data.card.subtype == "EX") {
+              basics.push(data.card.name);
+              ifBasic = true;
+          }
       }
     });
-/*
-    $.getJSON(url, function(data) {
-      $("#hand").append("<img src='" + data.card.imageUrl + "'></img>");
-    });
-*/
-    //$("#hand").append("<p class = 'card'>" + deck[deck.length - 1].name + "</p>");
+
     deck.pop();
   }
 }

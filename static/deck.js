@@ -4,11 +4,21 @@ function card (name, set, setNo) {
 	this.setNo = setNo;
 }
 
+function basicCard (name, set, setNo, num) {
+    this.name = name;
+    this.set = set;
+    this.setNo = setNo;
+    this.num = num;
+}
+
 var deck = [];
 var prizes = [];
 var supporterPlayed = false;
 var stadiumPlayed = false;
 var ifBasic;
+
+var basics = [];
+var newBasics = [];
 
 var turnNo;
 

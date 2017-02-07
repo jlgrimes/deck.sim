@@ -31,6 +31,10 @@ body {
 	vertical-align: top;
 }
 
+.multilineResults p {
+	display: block;
+}
+
 #active {
 	display: inline;
 }

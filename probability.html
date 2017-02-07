@@ -76,14 +76,17 @@
 
 <body>
 
-    <div class="start">
+<p>If you haven't made a deck yet, go ahead to <a href="test.html">here</a> to make one. It should show up right below.</p>
+
+    <div id = "cookies"></div>
+    <div id="start" class="abutton">
         <button onclick="$('.result').html((1 - hypergeometric(1, 60, 7, 0)) * 100 + '%')">Starting with a card you play 1 of</button>
         <button onclick="$('.result').html((1 - hypergeometric(2, 60, 7, 0)) * 100 + '%')">Starting with a card you play 2 of</button>
         <button onclick="$('.result').html((1 - hypergeometric(3, 60, 7, 0)) * 100 + '%')">Starting with a card you play 3 of</button>
         <button onclick="$('.result').html((1 - hypergeometric(4, 60, 7, 0)) * 100 + '%')">Starting with a card you play 4 of</button>
     </div>
 
-    <div class="prize">
+    <div id="prize" class="abutton">
         <button onclick="$('.result').html((1 - hypergeometric(1, 60, 6, 0)) * 100 + '%')">Prizing a card you play 1 of</button>
         <button onclick="$('.result').html((1 - hypergeometric(2, 60, 6, 0)) * 100 + '%')">Prizing a card you play 2 of</button>
         <button onclick="$('.result').html((1 - hypergeometric(3, 60, 6, 0)) * 100 + '%')">Prizing a card you play 3 of</button>
@@ -94,4 +97,9 @@
         <p>Odds of selected: </p>
         <p class="result"></p>
     </div>
+
+    <div class="multilineResults">
+    </div>
+
+    <textarea name="text" placeholder="Enter here!" id="deckIn" rows = 40 cols = 60></textarea>
 </body>

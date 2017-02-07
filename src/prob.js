@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('#deckIn').hide();
 
     $("#cookies").click(function() {
-        //$('#deckIn').hide();
+        $('#deckIn').hide();
         $('.result').empty();
         parseCache(event.target.innerHTML);
         parseProb();

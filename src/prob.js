@@ -74,6 +74,7 @@ function drawProb() {
     var url;
 
     newBasics = [];
+    basicCount = 0;
 
     for (i = 0; i < basics.length; i++)
     {
@@ -88,10 +89,16 @@ function drawProb() {
                 if (data.card.supertype.includes("Pok"))
                     if (data.card.subtype == "Basic" || data.card.subtype == "EX") {
                         newBasics.push(basics[i]);
+                        basicCount += parseInt(basics[i].num);
                     }
             }
         });
     }
+
+    //alert(basicCount);
+
+    alert(hypergeometric(60 - basicCount, 60, basicCount));
+
     $('.multilineResults').html("");
 
     odds = [];
@@ -171,6 +178,16 @@ function binomial(n, k) {
     for (var x = n-k+1; x <= n; x++) coeff *= x;
     for (x = 1; x <= k; x++) coeff /= x;
     return coeff;
+}
+
+function hypergeoSimple(m, N, n)
+{
+    // N = 60 cards in deck, n = subject size (7 for hand, 6 for prize)
+    // m = number of subject in deck (4 for playset), i = 1
+
+    var prob = 0;
+    prob = prob + (binomial(m, i) * binomial((N - m), (n - i)) / binomial(N, n));
+    return prob;
 }
 
 function hypergeometric(m, N, n)

@@ -26,6 +26,28 @@ body {
 	}
 }
 
+.flexcontainer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+
+.cookieholder {
+	/* This will be twice as big as the small item. */
+	-webkit-flex: 2 0 0;
+	flex: 1 0 0;
+}
+.enter {
+	-webkit-flex: 1 0 0;
+	flex: 2 0 0;
+}
+
+.print {
+	-webkit-flex: 1 0 0;
+	flex: 4 0 0;
+}
+
 .results h3 {
 	display: inline-block;
 	vertical-align: top;
@@ -53,15 +75,19 @@ body {
 }
 
 #stadium {
-	text-align: right;
+	float: right;
 	display: inline;
 	right: 0;
 }
 
 #prompt {
-	font-family: Cambria ;
+	
 }
 
 .debugElement{
 	display: inline;
+}
+
+.printedCard {
+	position: relative;
 }

@@ -19,6 +19,7 @@ var ifBasic;
 
 var basics = [];
 var newBasics = [];
+var basicCount;
 
 var turnNo;
 

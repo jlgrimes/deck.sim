@@ -99,9 +99,8 @@ $(document).ready(function(){
     });
 
     $("#parsedeck").click(function(){
-        $("textarea").hide();
-        $("#cookies").hide();
-        $("#save").hide();
+        $(".flexcontainer").hide();
+        $(".print").hide();
 
         play();
     });
@@ -199,6 +198,10 @@ $(document).ready(function(){
         $('.pokemon').show();
         $('.energy').show();
         $('.tool').show();
+    });
+
+    $(".cookieholder #cookies").click(function(event) {
+        parseCache(event.target.innerHTML);
     });
 
     $("#cookies").click(function(event) {

@@ -7,12 +7,21 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
+
 p {
   font-size: 20px;
 }
 p.small {
   font-size: 16px;
 }
+
+div p {
+  font-size: 20px;
+}
+div p.small {
+  font-size: 16px;
+}
+
 a,
 a:hover,
 a:focus,
@@ -31,6 +40,18 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+div h1,
+div h2,
+div h3,
+div h4,
+div h5,
+div h6 {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 hr.star-light,
 hr.star-primary {
   padding: 0;

@@ -97,7 +97,7 @@ function drawProb() {
 
     //alert(basicCount);
 
-    alert(hypergeometric(60 - basicCount, 60, basicCount));
+    //alert(hypergeometric(60 - basicCount, 60, basicCount));
 
     $('.multilineResults').html("");
 

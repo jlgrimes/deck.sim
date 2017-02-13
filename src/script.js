@@ -63,18 +63,6 @@ $(document).ready(function(){
         }
         else if (evolvingPokemon != "")
         {
-            var pos = $(event.target).position();
-            var num = pos.left - 215;
-            num = Math.floor(num / 179);
-            var valid = false;
-
-            if (num < 0 && activeTurn < turnNo)
-                valid = true;
-
-            else if (num >= 0 && benchedTurn[num] < turnNo)
-                valid = true;
-
-            if (valid) {
                 var url = $(event.target).attr('src');
                 url = pictojson(url);
                 //alert(url);
@@ -89,9 +77,9 @@ $(document).ready(function(){
                             alert("Sorry, " + data.card.name + " doesn't evolve into " + evolvingPokemonName + ".");
                     }
                 })
-            }
-            else
-                alert("You can't evolve on this turn.");
+
+            $("#prompt").html("");
+            evolvingPokemon = "";
         }
         //else
             //alert("no energy select");
@@ -241,6 +229,7 @@ $(document).ready(function(){
                 async: false,
                 url: url,
                 success: function(data) {
+                    //alert(data.card.subtype);
                     if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon") && $("#benched").children().length < benchSize) {
                         benchedTurn[$("#benched").children().length] = turnNo;
 
@@ -250,22 +239,38 @@ $(document).ready(function(){
                     }
                     else if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon") && $("#benched").children().length >= benchSize);
 
+                    else if (data.card.subtype.indexOf("Stage") >= 0 || data.card.subtype.indexOf("GX") >= 0)
+                    {
+                        var pos = $(event.target).position();
+                        var num = pos.left - 215;
+                        num = Math.floor(num / 179);
+                        var valid = false;
+
+                        if (num < 0 && activeTurn < turnNo)
+                            valid = true;
+
+                        else if (num >= 0 && benchedTurn[num] < turnNo)
+                            valid = true;
+
+                        if (valid || (data.card.types.indexOf("Grass") >= 0 && forestActive)) {
+                            evolvingPokemon = event.target.src;
+                            evolvingPokemonNo = data.card.nationalPokedexNumber;
+                            $("#prompt").html("Which Pokemon would you like to evolve into " + data.card.name + "?");
+                            $(event.target).remove();
+                            evolvingPokemonName = data.card.name;
+                        }
+                        else
+                            alert("You can't evolve on this turn.");
+                    }
                     else if ($("#prompt").html().indexOf("discard") >= 0)
                     {
                         $(event.target).remove();
                         $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
                         discardCount++;
                     }
-
-                    else if (data.card.subtype.indexOf("Stage") >= 0)
-                    {
-                        evolvingPokemon = event.target.src;
-                        evolvingPokemonNo = data.card.nationalPokedexNumber;
-                        $("#prompt").html("Which Pokemon would you like to evolve into " + data.card.name + "?");
-                        $(event.target).remove();
-                        evolvingPokemonName = data.card.name;
-                    }
                     else if (data.card.subtype == "Stadium" && !stadiumPlayed) {
+                        if (data.card.name == "Forest of Giant Plants")
+                            forestActive = true;
                         $("#stadium").append("<img class = 'pokemon' src = '" + event.target.src + "' height='" + stadiumHeight + "'</img>");
                         $(event.target).remove();
                         stadiumPlayed = true;
@@ -295,7 +300,7 @@ $(document).ready(function(){
                     if (discardHandVar == 0) {
                         if (data.card.name == "N" && !supporterPlayed)
                             N();
-                        else if (data.card.name == "Professor Sycamore" && !supporterPlayed)
+                        else if ((data.card.name == "Professor Sycamore" || data.card.name == "Professor Juniper") && !supporterPlayed)
                             sycamore();
                         else if (data.card.name == "Level Ball")
                             levelball();
@@ -303,12 +308,16 @@ $(document).ready(function(){
                             ultraball();
                         else if (data.card.name == "Shaymin-EX")
                             draw(6 - $("#hand").children().length)
+                        else if (data.card.name == "Bicycle")
+                            draw(4 - $("#hand").children().length)
                         else if (data.card.name == "Trainers' Mail")
                             trainermail();
                         else if (data.card.name == "Max Elixir")
                             maxelixir();
                         else if (data.card.name == "VS Seeker")
                             vsseeker();
+                        else if (data.card.name == "Roller Skates")
+                            rollerskates();
                     }
                     else
                         discardHandVar++;
@@ -428,6 +437,8 @@ function parse()
 
         var convertedSet = setConvert(set);
         set = convertedSet;
+
+        //alert(set);
 
         if (set == "xyp")
           setNo = "xy" + tempsetNo;

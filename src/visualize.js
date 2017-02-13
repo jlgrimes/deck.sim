@@ -13,9 +13,10 @@ $(document).ready(function() {
                 async: false,
                 url: url,
                 success: function (data) {
-                    $(".print").append("<img src='" + data.card.imageUrl + "' id='printCard" + i + "' class='printedCard' height='" + 200 + "'></img>");
+                    $(".print").append("<img src='" + data.card.imageUrl + "' id='printCard" + i + "' class='printedCard' height='" + printHeight + "'></img>");
                 }
             });
         }
+
     });
 });

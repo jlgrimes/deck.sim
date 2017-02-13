@@ -115,3 +115,7 @@ function searchDeck()
     //alert($('#hand').children().first().nodeName);
     //alert($('#peek').children().first().nodeName);
 }
+
+function flip() {
+    return Math.floor(Math.random() * 2);
+}

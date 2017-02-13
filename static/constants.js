@@ -8,7 +8,7 @@ var discardHeight = 150; // px
 var energyHeight = 100; // px
 var toolHeight = 100; // px
 
-var printHeight = 200; // px
+var printHeight = 150; // px
 
 var toolHeightOffset = 140; // px
 var energyHeightOffset = 240; // px

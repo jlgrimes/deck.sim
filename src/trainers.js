@@ -43,3 +43,13 @@ function vsseeker()
 	vsSeeker = true;
     $("#prompt").html("Please grab a supporter from your discard pile.");
 }
+
+function rollerskates()
+{
+    if (flip()) {
+        $("#prompt").html("Heads!");
+        draw(3);
+    }
+    else
+        $("#prompt").html("Tails :(");
+}

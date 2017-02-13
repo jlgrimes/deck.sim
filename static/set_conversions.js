@@ -29,7 +29,7 @@ function setConvert(abbr){
 		return "xy1";
 	else if (abbr == "KSS")
 		return "xy0";
-	else if (abbr == "PR" || abbr == " XY")
+	else if (abbr == "PR" || abbr == "PR-" || abbr == " XY")
 		return "xyp";
 	else if (abbr == "LTR")
 		return "bw11";
@@ -53,8 +53,8 @@ function setConvert(abbr){
 		return "bw3";
 	else if (abbr == "EPO")
 		return "bw2";
-	else if (abbr == "BLW")
+	else if (abbr == "BLW" || abbr == "BW " || abbr == "BW" || abbr == " BW")
 		return "bw1";
-    else if (abbr == "SM" || abbr == "SAM" || abbr == "SUM")
+    else if (abbr == "SM" || abbr == " SM" || abbr == "SM " || abbr == "SAM" || abbr == "SUM")
         return "sm1";
 }

@@ -250,6 +250,13 @@ $(document).ready(function(){
                     }
                     else if ((data.card.subtype == "Basic" || data.card.subtype == "EX") && data.card.supertype.includes("mon") && $("#benched").children().length >= benchSize);
 
+                    else if ($("#prompt").html().indexOf("discard") >= 0)
+                    {
+                        $(event.target).remove();
+                        $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
+                        discardCount++;
+                    }
+
                     else if (data.card.subtype.indexOf("Stage") >= 0)
                     {
                         evolvingPokemon = event.target.src;
@@ -275,18 +282,6 @@ $(document).ready(function(){
                         toolSelect = event.target.src;
                         $("#prompt").html("Which Pokemon would you like to attach the tool to?");
                         $(event.target).remove();
-                    }
-                    else if ($("#prompt").html().indexOf("discard") >= 0 && data.card.subtype == "Supporter" && supporterPlayed)
-                    {
-                        $(event.target).remove();
-                        $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
-                        discardCount++;
-                    }
-                    else if ($("#prompt").html().indexOf("discard") >= 0 && data.card.supertype == "Energy" && energyPlayed)
-                    {
-                        $(event.target).remove();
-                        $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
-                        discardCount++;
                     }
                     else {
                         if (!(data.card.subtype == "Supporter" && supporterPlayed)) {

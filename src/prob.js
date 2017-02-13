@@ -189,16 +189,3 @@ function hypergeoSimple(m, N, n)
     prob = prob + (binomial(m, i) * binomial((N - m), (n - i)) / binomial(N, n));
     return prob;
 }
-
-function hypergeometric(m, N, n)
-{
-    // N = 60 cards in deck, n = subject size (7 for hand, 6 for prize)
-    // m = number of subject in deck (4 for playset), i = 1
-
-    var prob = 0;
-    for (var i = 1; i < 5; i++) {
-        prob = prob + (binomial(m, i) * binomial((N - m), (n - i)) / binomial(N, n));
-        //alert(prob);
-    }
-    return prob;
-}

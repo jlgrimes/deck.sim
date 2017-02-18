@@ -88,6 +88,10 @@ body {
 	display: inline;
 }
 
+#cleanprize, #targetnumber, #playednumber, .sometext{
+	display: inline-block;
+}
+
 .printedCard {
 	position: relative;
 }

@@ -40,81 +40,207 @@
     <link rel="stylesheet" href="styles.css">
     <title>deck.sim</title>
 
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="index.html">deck.sim</a>
-            </div>
+<body id="page-top" class="index">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="index.html"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="test.html">Test</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="probability.html">Statistics</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="index.html">deck.sim</a>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-</head>
 
-<body>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="index.html"></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="test.html">Test</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="probability.html">Statistics</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="rulings.html">Rulings</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
 <h1>Prize Calculations</h1>
 
-    <div id="prize" class="abutton">
-        <button onclick="$('.result').html((binomial(1, 1) * binomial(59, 5) / binomial(60, 6)) * 100 + '%')">Prizing a card you play 1 of</button>
-        <button onclick="$('.result').html((binomial(2, 1) * binomial(58, 5) / binomial(60, 6)) * 100 + '%')">Prizing a card you play 2 of</button>
-        <button onclick="$('.result').html((binomial(3, 1) * binomial(57, 5) / binomial(60, 6)) * 100 + '%')">Prizing a card you play 3 of</button>
-        <button onclick="$('.result').html((binomial(4, 1) * binomial(56, 5) / binomial(60, 6)) * 100 + '%')">Prizing a card you play 4 of</button>
+    <div id="cleanprize">
+
+        <p class="sometext">The odds of prizing </p>
+
+        <select id="targetnumber">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+
+        <p class="sometext"> of a card you play </p>
+
+            <select id="playednumber">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+
+        <p class="sometext"> of.</p>
+
+        <button id="calculate">Calculate!</button>
+
     </div>
 
-<div id="prize2" class="abutton">
-    <button onclick="$('.result').html((binomial(2, 2) * binomial(58, 4) / binomial(60, 6)) * 100 + '%')">Prizing 2 of a card you play 2 of</button>
-    <button onclick="$('.result').html((binomial(3, 2) * binomial(57, 4) / binomial(60, 6)) * 100 + '%')">Prizing 2 of a card you play 3 of</button>
-    <button onclick="$('.result').html((binomial(4, 2) * binomial(56, 4) / binomial(60, 6)) * 100 + '%')">Prizing 2 of a card you play 4 of</button>
+<div id="cleanline">
+
+    <p class="sometext">The odds of breaking up a </p>
+
+    <select id="cleanline1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p class="sometext"> - </p>
+
+    <select id="cleanline2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p class="sometext"> line.</p>
+
+    <button id="calculate_cleanline">Calculate!</button>
+
 </div>
 
-<div id="prize3" class="abutton">
-    <button onclick="$('.result').html((binomial(3, 3) * binomial(57, 3) / binomial(60, 6)) * 100 + '%')">Prizing 3 of a card you play 3 of</button>
-    <button onclick="$('.result').html((binomial(4, 3) * binomial(56, 3) / binomial(60, 6)) * 100 + '%')">Prizing 3 of a card you play 4 of</button>
+<div id="cleanlinee">
+
+    <p class="sometext">The odds of breaking up a </p>
+
+    <select id="cleanlinee1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p class="sometext"> - </p>
+
+    <select id="cleanlinee2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p class="sometext"> - </p>
+
+    <select id="cleanlinee3">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p class="sometext"> line.</p>
+
+    <button id="calculate_cleanlinee">Calculate!</button>
+
 </div>
 
-<div id="prize4" class="abutton">
-    <button onclick="$('.result').html((binomial(4, 4) * binomial(56, 2) / binomial(60, 6)) * 100 + '%')">Prizing 4 of a card you play 4 of</button>
+<div class="results">
+    <h3 id="text">Odds of selected: </h3>
+    <h3 class="result"></h3>
 </div>
 
-<div id="pokemonlines" class="abutton">
-    <button onclick="$('.result').html((binomial(8, 1) * binomial(52, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 4-4 line</button>
-    <button onclick="$('.result').html((binomial(6, 1) * binomial(54, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 3-3 line</button>
-    <button onclick="$('.result').html((binomial(4, 1) * binomial(56, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 2-2 line</button>
-    <button onclick="$('.result').html((binomial(2, 1) * binomial(58, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 1-1 line</button>
+<h1>Chances that you'll brick</h1>
+
+<div id="brick">
+
+    <p class="sometext">Sycamore Count: </p>
+
+    <select id="sycamorecount">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p></p>
+    <p class="sometext">N count: </p>
+
+    <select id="ncount">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p></p>
+    <p class="sometext">Trainer's Mail count: </p>
+
+    <select id="tmailcount">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p></p>
+    <p class="sometext">Shaymin-EX count: </p>
+
+    <select id="shaymincount">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p></p>
+    <p class="sometext">Hoopa-EX count: </p>
+
+    <select id="hoopscount">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+
+    <p></p>
+
+    <button id="calculate_brick">Calculate!</button>
+
 </div>
 
-<div id="pokemonlines2" class="abutton">
-    <button onclick="$('.result').html((binomial(12, 1) * binomial(48, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 4-4-4 line</button>
-    <button onclick="$('.result').html((binomial(9, 1) * binomial(51, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 3-3-3 line</button>
-    <button onclick="$('.result').html((binomial(6, 1) * binomial(54, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 2-2-2 line</button>
-    <button onclick="$('.result').html((binomial(3, 1) * binomial(57, 5) / binomial(60, 6)) * 100 + '%')">Breaking up a 1-1-1 line</button>
+<div class="results">
+    <h3 id="textuh">Odds of bricking: </h3>
+    <h3 class="resultbrick"></h3>
+    <p><b>Note: Does not take into account if you have a good hand or not. Depending on how crap your hand is,
+        you can define bricking however you want.</b></p>
 </div>
 
 
-    <div class="results">
-        <h3 id="text">Odds of selected: </h3>
-        <h3 class="result"></h3>
-    </div>
 <h1>Odds of Starting with Pokemon</h1>
 <p>If you haven't made a deck yet, go ahead to <a href="test.html">here</a> to make one. It should show up right below.</p>
 
@@ -126,3 +252,26 @@
 </div>
 
 </body>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- jQuery -->
+<script src="vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Theme JavaScript -->
+<script src="js/freelancer.min.js"></script>

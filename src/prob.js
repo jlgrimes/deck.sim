@@ -10,6 +10,105 @@ $(document).ready(function() {
         //alert(basics[0]);
     });
 
+    $("#calculate").click(function() {
+        var targetE = document.getElementById("targetnumber");
+        var target = targetE.options[targetE.selectedIndex].text;
+        var playedInt = parseInt(target);
+
+        var playedE = document.getElementById("playednumber");
+        var played = playedE.options[playedE.selectedIndex].text;
+        var targetInt = parseInt(played);
+
+        // oops, i had them flipped!
+
+        if (targetInt >= playedInt)
+            $('.result').html((binomial(targetInt, playedInt) * binomial(60 - targetInt, 6 - playedInt) / binomial(60, 6)) * 100 + '%');
+        else
+            $('.result').html("You can't prize more cards than you play")
+    });
+
+    $("#calculate_cleanline").click(function() {
+        var firstE = document.getElementById("cleanline1");
+        var first = firstE.options[firstE.selectedIndex].text;
+        var firstInt = parseInt(first);
+
+        var secondE = document.getElementById("cleanline2");
+        var second = secondE.options[secondE.selectedIndex].text;
+        var secondInt = parseInt(second);
+
+        var sum = firstInt + secondInt;
+        // alert(sum);
+
+        //alert(sum * binomial((60 - sum), 5) / (binomial(60, 6) * 100) + '%');
+        $('.result').html(sum * binomial((60 - sum), 5) / binomial(60, 6) * 100 + '%');
+    });
+
+        $("#calculate_cleanlinee").click(function() {
+            var firstE = document.getElementById("cleanlinee1");
+            var first = firstE.options[firstE.selectedIndex].text;
+            var firstInt = parseInt(first);
+
+            var secondE = document.getElementById("cleanlinee2");
+            var second = secondE.options[secondE.selectedIndex].text;
+            var secondInt = parseInt(second);
+
+            var thirdE = document.getElementById("cleanlinee3");
+            var third = thirdE.options[thirdE.selectedIndex].text;
+            var thirdInt = parseInt(third);
+
+            var sum = firstInt + secondInt + thirdInt;
+            // alert(sum);
+
+            //alert(sum * binomial((60 - sum), 5) / (binomial(60, 6) * 100) + '%');
+            $('.result').html(sum * binomial((60 - sum), 5) / binomial(60, 6) * 100 + '%');
+        });
+
+    $("#calculate_brick").click(function() {
+        var firstE = document.getElementById("sycamorecount");
+        var first = firstE.options[firstE.selectedIndex].text;
+        var sycamore = parseInt(first);
+
+        var secondE = document.getElementById("ncount");
+        var second = secondE.options[secondE.selectedIndex].text;
+        var n = parseInt(second);
+
+        var thirdE = document.getElementById("tmailcount");
+        var third = thirdE.options[thirdE.selectedIndex].text;
+        var tmail = parseInt(third);
+
+        var shayE = document.getElementById("shaymincount");
+        var shay = shayE.options[shayE.selectedIndex].text;
+        var shaymin = parseInt(shay);
+
+        var hoopaE = document.getElementById("hoopscount");
+        var hoopa = hoopaE.options[hoopaE.selectedIndex].text;
+        var hoops = parseInt(hoopa);
+
+        var ifTrainer = false;
+
+        var success = sycamore + n;
+        if (sycamore > 0 || n > 0)
+            ifTrainer = true;
+        if (shaymin > 0 || hoops > 0) // Account Ultra Balls into not bricking if the player runs Shaymin-EX or Hoopa-EX
+        {
+            success += 4;
+            ifTrainer = true;
+        }
+        var tmail_success = (tmail * binomial((60 - success), 4) / binomial(60, 4));
+        if (ifTrainer)
+            success += tmail_success;
+        success += shaymin;
+        success += hoops;
+        // Making tmail quantity equal to success rate times number of trainer's mail
+        // Even though there's no way to hit a decimal amount of trainer's mails :P
+
+        // alert(sum);
+
+        var noDraw = 1 * binomial((60 - success), 7) / binomial(60, 7);
+
+        $('.resultbrick').html(noDraw * 100 + '%');
+    });
+
     $(".abutton").click(function() {
         $('.multilineResults').html("");
     });

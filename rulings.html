@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Probability</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="src/cookies.js"></script>
+    <script src="src/script.js"></script>
+    <script src="src/mechanics.js"></script>
+    <script src="src/ruling.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>deck.sim</title>
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="index.html">deck.sim</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="index.html"></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="test.html">Test</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="probability.html">Statistics</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="rulings.html">Rulings</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<h1>Card Rulings</h1>
+
+<ul>
+    <li>Special Conditions</li>
+    <ul class = "subset">
+        <li>Confusion</li>
+        <ul class = "subset">
+            <li>If my confused Pokemon tries to use a GX attack and flips Tails, does that use up my "one GX attack per game"?</li>
+            <ul class = "rule">
+                <li>No, if you flip tails the attack fails and you don't use up your GX attack.</li>
+            </ul>
+        </ul>
+    </ul>
+    <li>Sun and Moon (SM)</li>
+    <ul class = "set">
+        <li>Tsareena</li>
+        <ul class = "subset">
+            <li>When you use Tsareena's "Queenly Majesty" ABility, when the opponent reveals their hand do you get to choose which card
+                to discard or is it random>?</li>
+            <ul class = "rule">
+                <li>You get to choose.</li>
+            </ul>
+
+            <li>Can I use Tsareena's "Queenly Majesty" Ability and not discard anything from my opponent's hand?</li>
+            <ul class = "rule">
+                <li>No, because the card says "you may look at your opponent's hand and discard 1 card you find there", you must discard a card.</li>
+            </ul>
+        </ul>
+
+        <li>Gumshoos-GX</li>
+        <ul class = "subset">
+            <li>If I have multiple Gumshoos-GX in play, can I use each of their "Search the Premises" Abilities or am I limited to only one total per turn?</li>
+            <ul class = "rule">
+                <li>Each Gumshoos-GX can use its own ability once per turn. So if you have two of them you can use the first Search the Premises to have your opponent reveal their hand,
+                    then use a Trainer card such as N to have the opponent shuffle their hand into their deck and draw new cards, and then use the second Search the Premises to have your
+                    opponent reveal their hand again.</li>
+            </ul>
+        </ul>
+
+        <li>Umbreon-GX</li>
+        <ul class = "subset">
+            <li>Can Umbreon-GX's Dark Call attack discard 2 Double Colorless Energy?</li>
+            <ul class = "rule">
+                <li>Yes, it can discard 2 of any type of energy.</li>
+            </ul>
+        </ul>
+
+        <li>Dragonair</li>
+        <ul class = "subset">
+            <li>On the turn after using Dragonair's "Dragon Wish" attack, when I attack any number of Energy cards from my hand do I have to attach them all at once, or can I attach
+                them whenever I want during my turn?</li>
+            <ul class = "rule">
+                <li>You do not have to attach them all at once. You can attach them from your hand whenever you like during the duration of your turn following Dragon's Wish..</li>
+            </ul>
+
+            <li>If I use Dragonair's "Dragon's Wish" attack and then on the following turn evolve it to Dragonite, can I still attach the energies or not??</li>
+            <ul class = "rule">
+                <li>Yes, absolutely! The Dragon's Wish effect resides on the player, not on the Pokemon.</li>
+            </ul>
+        </ul>
+
+        <li>Rotom Dex</li>
+        <ul class = "subset">
+            <li>What if I use Town Map, then Rotom Dex?</li>
+            <ul class = "rule">
+                <li>You would shuffle your face-up prize cards into your deck, and deal equally that many face-down cards into your prizes.</li>
+            </ul>
+        </ul>
+
+        <li>EXP Share</li>
+        <ul class = "subset">
+            <li>What if I forget to move a Basic Energy from my KOed Active Pokemon to a benched Pokemon with an EXP Share attached?</li>
+            <ul class = "rule">
+                <li>Once the Active Pokemon reaches the discard pile, the effects of EXP Share are ignored, so you may not continue to attach the
+                    Basic Energy.</li>
+            </ul>
+        </ul>
+
+        <li>Professor Kukui</li>
+        <ul class = "subset">
+            <li>Can I play Professor Kukui if I have no cards left in my deck?</li>
+            <ul class = "rule">
+                <li>Yes you can, because you still get to do the +20 bonus damage for your Pokemon's attacks.</li>
+            </ul>
+        </ul>
+
+        <li>Nest Ball</li>
+        <ul class = "subset">
+            <li>Can I use Nest Ball if my Bench is full?</li>
+            <ul class = "rule">
+                <li>Of course not, don't be foolish. (adapted from Great Ball ruling Oct 28, 2004)</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY Evolutions (EVO)</li>
+    <ul class = "set">
+        <li>Starmie</li>
+        <ul class = "subset">
+            <li>Can I use Starmie's "Space Beacon" Ability to discard a card from my hand if there are no Basic Energies in my discard pile?</li>
+            <ul class = "rule">
+                <li>Yes you can. The first part of Space Beacon is to discard a card fro your hand, period. Then you do as much of the rest of the Ability as you are able to.</li>
+            </ul>
+        </ul>
+
+        <li>Clefairy</li>
+        <ul class = "subset">
+            <li>Can I have Clefairy's "Metronome" copy a GX attack, and if so does it use up my "one GX attack per game"?</li>
+            <ul class = "rule">
+                <li>Yes you can, and yes it does. Also if you've already used your GX attack for the game, then you cannot choose a GX attack with Metronome.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY Promos (XYP)</li>
+    <ul class = "set">
+        <li>Darkrai</li>
+        <ul class = "subset">
+            <li>If Darkrai attacks with "Abyssal Sleep", can Pokemon Ranger clear the effect of flipping 2 coins when asleep?</li>
+            <ul class = "rule">
+                <li>Asleep, Poisoned, etc. are Special Conditions, regardless of how many coinf you flip or how much damage the poison condition does. Therefore they are not altered by Pokemn Ranger.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY Steam Siege (STM)</li>
+    <ul class = "set">
+        <li>Volcanion-EX</li>
+        <ul class = "subset">
+            <li>If I use Volcanion-EX's Volcanic Heat attack, but I already used it the turn before, does my turn immediately end?</li>
+            <ul class = "rule">
+                <li>Once you've declared an attack, you cannot leave the attack step without your opponent's permission. If you declare an
+                "illegal" attack, you may ask your opponent's permission to back out of the attack step. If he or she says "yes", you can
+                go back and take any actions that you could have taken prior to the attack step. If he or she says "no", you may either
+                select an attack that is legal or you may pass.</li>
+            </ul>
+
+            <li>Does Parallel City reduce Volcanion-EX's attack by 40, since Volcanion-EX is Fire and Water typed?</li>
+            <ul class = "rule">
+                <li>No, it only reduces by 20, because you can only use an effect of a card once per Pokemon if it's eligible.</li>
+            </ul>
+        </ul>
+
+        <li>Magearna-EX</li>
+        <ul class = "subset">
+            <li>If Magearna-EX with the "Mystic Heart" Ability is in play, are all Pokemon with Metal Energy attached protected from Greninja's Shadow Stitching attack?</li>
+            <ul class = "rule">
+                <li>If Magearna-EX has a Metal Energy attached to it, all Pokemon with Metal Energy attached are protected; however, if Magearna-EX does not have a Metal Energy
+                    attached to it, its Mystic Heart Ability is shut off and no Pokemon with Metal Energy attached are protected.</li>
+            </ul>
+        </ul>
+
+        <li>Pokemon Ranger</li>
+        <ul class = "subset">
+            <li>If Darkrai attacks with "Abyssal Sleep", can Pokemon Ranger clear the effect of flipping 2 coins when asleep?</li>
+            <ul class = "rule">
+                <li>Asleep, Poisoned, etc. are Special Conditions, regardless of how many coinf you flip or how much damage the poison condition does. Therefore they are not altered by Pokemn Ranger.</li>
+            </ul>
+        </ul>
+
+        <li>Captivating Pokepuff</li>
+        <ul class = "subset">
+            <li>If I have a Team Magma's Secret Base in play and I play a Captivating Pokepuff, are the Pokemon I force into play affected by Team Magma's Secret Base?</li>
+            <ul class = "rule">
+                <li>Yes, Team Magma's Secret Base reads that Pokeon played take damage when played from your hand, which they are in this case.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY Fates Collide (FCO)</li>
+    <ul class = "set">
+        <li>Marowak</li>
+        <ul class = "subset">
+            <li>If I used Volcanion-EX's "Volcanic Heat" attack last turn, then on this turn I play Marowak and use its "Bodyguard" ability that says to "remove any existing
+            effects", does that mean I can use Volcanion-EX's "Volcanic Heat" attack on this turn?</li>
+            <ul class = "rule">
+                <li>Sorry, but no. You can only remove effects that were done by your opponent's Pokemon, not effects done by your own Pokemon.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY BREAKpoint (BKP></li>
+    <ul class = "set">
+        <li>Greninja</li>
+        <ul class = "subset">
+            <li>Can I return a Splash Energy to my hand to add 20 damage to Greninja's Moonlight Slash attack?</li>
+            <ul class = "rule">
+                <li>Yes, Splash Energy is considered a Basic Water Energy when attached to a Pokemon.</li>
+            </ul>
+
+            <li>If Magearna-EX with the "Mystic Heart" Ability is in play, are all Pokemon with Metal Energy attached protected from Greninja's Shadow Stitching attack?</li>
+            <ul class = "rule">
+                <li>If Magearna-EX has a Metal Energy attached to it, all Pokemon with Metal Energy attached are protected; however, if Magearna-EX does not have a Metal Energy
+                attached to it, its Mystic Heart Ability is shut off and no Pokemon with Metal Energy attached are protected.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY BREAKthrough (BKT)</li>
+    <ul class = "set">
+        <li>Yveltal</li>
+        <ul class = "subset">
+            <li>If my Yveltal with "Fright Night" Ability gets KO'd, am I then able to use EXP Share on one of my Benched Pokemon to recover one of Yveltal's Basic Energy cards?</li>
+            <ul class = "rule">
+                <li>Sorry, but no. Fright Night would still be working, so EXP Share would not enable before Yveltal hits the discard pile.</li>
+            </ul>
+        </ul>
+
+        <li>Brigette</li>
+        <ul class = "subset">
+            <li>Can I use Brigette to grab 3 GX Pokemon from my deck.</li>
+            <ul class = "rule">
+                <li>Yes, since GX Pokemon are not EX Pokemon.</li>
+            </ul>
+        </ul>
+    </ul>
+
+
+    <li>XY Roaring Skies (RSK)</li>
+    <ul class = "set">
+        <li>Does Bursting Balloon KO Shaymin-EX?</li>
+        <ul class = "rule">
+            <li>No.</li>
+        </ul>
+    </ul>
+
+    <li>XY Primal Clash (PRC)</li>
+    <ul class = "set">
+        <li>Rough Seas</li>
+        <ul class = "subset">
+            <li>Can I heal 60 damage from one of my Lightning type Pokemon with Vaporeon AOR and Rough Seas in play?</li>
+            <ul class = "rule">
+                <li>No, you can only heal 30 per turn, because you can only use an effect of a card once per Pokemon if it's eligible.</li>
+            </ul>
+        </ul>
+
+        <li>EXP Share</li>
+        <ul class = "subset">
+            <li>What if I forget to move a Basic Energy from my KOed Active Pokemon to a benched Pokemon with an EXP Share attached?</li>
+            <ul class = "rule">
+                <li>Once the Active Pokemon reaches the discard pile, the effects of EXP Share are ignored, so you may not continue to attach the
+                    Basic Energy.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY Ancient Origins (AOR)</li>
+    <ul class = "set">
+        <li>Mega Sceptile-EX</li>
+        <ul class = "subset">
+            <li>Can I evolve into Mega Sceptile-EX if I have a Sceptile Spirit Link attached without ending my turn if my opponent has Yveltal BKT in the Active?</li>
+            <ul class = "rule">
+                <li>Yes, because the Mega Evolution rule activates Mega Sceptile-EX is already in play, Theta Stop overrides Yveltal's Fright Night ability.</li>
+            </ul>
+        </ul>
+    </ul>
+
+    <li>XY Flashfire (FLF)</li>
+    <ul class = "set">
+        <li>Trick Shovel</li>
+        <ul class = "subset">
+            <li>Does my opponent have the right to see the top card of their deck kept by Trick Shovel?</li>
+            <ul class = "rule">
+                <li>No, only you have the right to see the top card of your opponent's deck while playing Trick Shovel.</li>
+            </ul>
+        </ul>
+    </ul>
+</ul>
+
+
+</body>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- jQuery -->
+<script src="vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Theme JavaScript -->
+<script src="js/freelancer.min.js"></script>

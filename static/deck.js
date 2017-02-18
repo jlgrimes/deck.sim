@@ -47,6 +47,7 @@ var benchedTurn = [0, 0, 0, 0, 0, 0, 0, 0];
 var elixir = false;
 var vsSeeker = false;
 var forestActive = false;
+var deleting = false;
 
 var odds = [];
 var someNumbers = [];

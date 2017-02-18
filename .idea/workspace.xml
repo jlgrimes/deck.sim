@@ -4,7 +4,6 @@
     <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rulings.html" afterPath="$PROJECT_DIR$/rulings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ruling.js" afterPath="$PROJECT_DIR$/src/ruling.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -98,8 +97,8 @@
       <file leaf-file-name="rulings.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rulings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7540">
-              <caret line="508" column="15" lean-forward="false" selection-start-line="508" selection-start-column="15" selection-end-line="508" selection-end-column="15" />
+            <state relative-caret-position="742">
+              <caret line="751" column="37" lean-forward="false" selection-start-line="751" selection-start-column="37" selection-end-line="751" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -457,7 +456,7 @@
       <workItem from="1486950495413" duration="9022000" />
       <workItem from="1487081166899" duration="2273000" />
       <workItem from="1487367828529" duration="14212000" />
-      <workItem from="1487452622048" duration="5072000" />
+      <workItem from="1487452622048" duration="6656000" />
     </task>
     <task id="LOCAL-00001" summary="dank cookies added">
       <created>1485443594150</created>
@@ -697,11 +696,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487453072347</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added more rulings!">
+      <created>1487457997430</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1487457997430</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129348000" />
+    <option name="totallyTimeSpent" value="130932000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -759,7 +765,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="almost got energy to work??" />
     <MESSAGE value="FINALLY sort of energy. also some tweaks :P" />
     <MESSAGE value="everything sorta works" />
     <MESSAGE value="Added universal compatibility to the cards that already exist!" />
@@ -784,7 +789,8 @@
     <MESSAGE value="Created a rulings page, added LOTSSS of stats.&#10;&#10;Did this in car ride to Chicago :P" />
     <MESSAGE value="Renamed Page :P" />
     <MESSAGE value="Gave credit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gave credit" />
+    <MESSAGE value="Added more rulings!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more rulings!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1174,8 +1180,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rulings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7540">
-          <caret line="508" column="15" lean-forward="false" selection-start-line="508" selection-start-column="15" selection-end-line="508" selection-end-column="15" />
+        <state relative-caret-position="742">
+          <caret line="751" column="37" lean-forward="false" selection-start-line="751" selection-start-column="37" selection-end-line="751" selection-end-column="37" />
           <folding />
         </state>
       </provider>

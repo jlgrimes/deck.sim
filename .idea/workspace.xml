@@ -97,8 +97,8 @@
       <file leaf-file-name="rulings.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rulings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="728" column="13" lean-forward="true" selection-start-line="728" selection-start-column="13" selection-end-line="728" selection-end-column="13" />
+            <state relative-caret-position="720">
+              <caret line="822" column="86" lean-forward="false" selection-start-line="822" selection-start-column="86" selection-end-line="822" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -456,7 +456,7 @@
       <workItem from="1486950495413" duration="9022000" />
       <workItem from="1487081166899" duration="2273000" />
       <workItem from="1487367828529" duration="14212000" />
-      <workItem from="1487452622048" duration="6729000" />
+      <workItem from="1487452622048" duration="8307000" />
     </task>
     <task id="LOCAL-00001" summary="dank cookies added">
       <created>1485443594150</created>
@@ -710,11 +710,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487459586229</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fixed small glitch">
+      <created>1487459662020</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1487459662020</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131005000" />
+    <option name="totallyTimeSpent" value="132583000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -772,7 +779,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="everything sorta works" />
     <MESSAGE value="Added universal compatibility to the cards that already exist!" />
     <MESSAGE value="Added VS Seeker, Ultra Ball glitch fixed..?" />
     <MESSAGE value="CSS Overhaul + Sun and Moon support!!" />
@@ -797,7 +803,8 @@
     <MESSAGE value="Gave credit" />
     <MESSAGE value="Added more rulings!" />
     <MESSAGE value="Added penalty stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added penalty stuff" />
+    <MESSAGE value="fixed small glitch" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed small glitch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1187,8 +1194,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rulings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="728" column="13" lean-forward="true" selection-start-line="728" selection-start-column="13" selection-end-line="728" selection-end-column="13" />
+        <state relative-caret-position="720">
+          <caret line="822" column="86" lean-forward="false" selection-start-line="822" selection-start-column="86" selection-end-line="822" selection-end-column="86" />
           <folding />
         </state>
       </provider>

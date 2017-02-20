@@ -456,16 +456,26 @@ function parse()
 }
 
 function pictojson(url){
-  url = url.replace('images','api');
-  url = url.replace('.png','');
-  url = url.replace('io/', 'io/v1/cards/');
+    if (url.indexOf('s3') > 0) {
+        url = url.replace('https://s3.amazonaws.com/pokemontcg/', '');
+        url = url.replace('.png', '');
+        url = url.replace('/', '-');
 
-    url = url.replace(new RegExp('/', 'g'), '-');
+        return ("https://api.pokemontcg.io/v1/cards/" + url);
+    }
+    else
+    {
+        url = url.replace('images', 'api');
+        url = url.replace('.png', '');
+        url = url.replace('io/', 'io/v1/cards/');
 
-    for (var i = 0; i < 5; i++)
-        url = url.replace('-', '/');
+        url = url.replace(new RegExp('/', 'g'), '-');
 
-  return (url);
+        for (var i = 0; i < 5; i++)
+            url = url.replace('-', '/');
+
+        return (url);
+    }
 }
 
 function pictoname(url){
@@ -489,17 +499,16 @@ function decktojson(pos)
 
 function jsontopic(url)
 {
-    url = url.replace('https://api.pokemontcg.io/v1/cards/','');
+    var pic = "";
+    $.ajax({
+        async: false,
+        url: url,
+        success: function (data) {
+            pic = data.card.imageUrl;
+        }
+    });
 
-    url = url.replace('-','/');
-
-    //alert(url);
-
-    if (url.indexOf("xyp") >= 0)
-        url = url.replace('/xy', '/XY');
-
-    return ("https://s3.amazonaws.com/pokemontcg/" + url + ".png");
-
+    return(pic);
 }
 
 function pictodeck(url){

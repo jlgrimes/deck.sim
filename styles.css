@@ -3,6 +3,8 @@ body {
 	width: auto;
 	/* background: darkgray; */
 	padding-top: 80px;
+	padding-left: 80px;
+	padding-right: 80px;
 }
 
 @media (min-width: 768px) {

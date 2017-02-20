@@ -5,6 +5,7 @@ $(document).ready(function(){
 
     //$("#peek").append("<div>dank</div>");
 
+
     $(".pokemon").click(function(event){
         if (energySelect != "") {
             energyPlayed = true;
@@ -197,8 +198,9 @@ $(document).ready(function(){
     });
 
     $("#hand").click(function(event) {
-
         var url = pictojson(event.target.src);
+
+        //alert(url);
 
         if (!activeFilled)
         {
@@ -389,7 +391,6 @@ function play()
   //deal(1);
 
   updateDebug();
-
   //searchDeck();
 }
 
@@ -455,11 +456,16 @@ function parse()
 }
 
 function pictojson(url){
-  url = url.replace('https://s3.amazonaws.com/pokemontcg/','');
+  url = url.replace('images','api');
   url = url.replace('.png','');
-  url = url.replace('/','-');
+  url = url.replace('io/', 'io/v1/cards/');
 
-  return ("https://api.pokemontcg.io/v1/cards/" + url);
+    url = url.replace(new RegExp('/', 'g'), '-');
+
+    for (var i = 0; i < 5; i++)
+        url = url.replace('-', '/');
+
+  return (url);
 }
 
 function pictoname(url){

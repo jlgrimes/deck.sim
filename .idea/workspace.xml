@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles.css" afterPath="$PROJECT_DIR$/styles.css" />
-    </list>
+    <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -846,7 +843,7 @@
       <workItem from="1487873199408" duration="102000" />
       <workItem from="1487873322728" duration="84000" />
       <workItem from="1487873425604" duration="57000" />
-      <workItem from="1487873505469" duration="2796000" />
+      <workItem from="1487873505469" duration="2821000" />
     </task>
     <task id="LOCAL-00001" summary="dank cookies added">
       <created>1485443594150</created>
@@ -1163,11 +1160,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487634578443</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="flex box updates, etc.">
+      <created>1487881034060</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1487881034061</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148574000" />
+    <option name="totallyTimeSpent" value="148599000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1244,7 +1248,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some probability" />
     <MESSAGE value="more probability" />
     <MESSAGE value="Probability works successfully!" />
     <MESSAGE value="Full functionality for probability" />
@@ -1269,7 +1272,8 @@
     <MESSAGE value="tweaked some things, changed margins" />
     <MESSAGE value="'Unofficial' rulings" />
     <MESSAGE value="changed email&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed email&gt;" />
+    <MESSAGE value="flex box updates, etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="flex box updates, etc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

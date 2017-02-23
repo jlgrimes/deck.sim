@@ -33,6 +33,7 @@ body {
 	display: flex;
 	-webkit-flex-direction: row;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .cookieholder {

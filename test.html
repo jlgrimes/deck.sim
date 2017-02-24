@@ -37,6 +37,10 @@
       <script src="src/script.js"></script>
       <script src="src/visualize.js"></script>
       <script src="src/mechanics.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="buttons/css/component.css" />
+      <script src="buttons/js/modernizr.custom.js"></script>
+
       <link rel="stylesheet" href="styles.css">
       <title>deck.sim</title>
 
@@ -90,9 +94,9 @@
     <div class = "flexcontainer">
         <div class = "cookieholder">
             <h2>Saved Decks</h2>
-            <h4 id = 'otherprompt'></h4>
             <div id = "cookies"></div>
             <button type="button" onclick="$('#otherprompt').html('Select a deck to delete.'); deleting = true;">Delete a deck</button>
+            <h4 id = 'otherprompt'></h4>
         </div>
         <div class = "enter">
             <h2>Import a Deck</h2>

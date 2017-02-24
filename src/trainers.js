@@ -31,6 +31,11 @@ function trainermail()
 	param = "data.card.supertype == 'Trainer' && !data.card.name.includes('Mail')";
 }
 
+function acrobike()
+{
+	peekDeck(2);
+}
+
 function maxelixir()
 {
 	elixir = true;

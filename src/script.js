@@ -106,9 +106,10 @@ $(document).ready(function(){
 
     $("#save").click(function(){
         setCache();
-        alert("Deck saved!");
+        //alert("Deck saved!");
         //$("#cookies").hide();
-        //printCache();
+        $('#cookies').empty();
+        printCache();
     });
 
     $("#discard").click(function(event){
@@ -189,12 +190,20 @@ $(document).ready(function(){
         $('.tool').show();
     });
 
-    $(".cookieholder #cookies").click(function(event) {
-        parseCache(event.target.innerHTML);
-    });
-
     $("#cookies").click(function(event) {
-        parseCache(event.target.innerHTML);
+        if (deleting)
+        {
+            localStorage.removeItem(event.target.innerHTML);
+
+            $('#cookies').empty();
+            printCache();
+
+            deleting = false;
+
+            $('#otherprompt').html('');
+        }
+        else
+            parseCache(event.target.innerHTML);
     });
 
     $("#hand").click(function(event) {
@@ -254,15 +263,23 @@ $(document).ready(function(){
                         else if (num >= 0 && benchedTurn[num] < turnNo)
                             valid = true;
 
-                        if (valid || (data.card.types.indexOf("Grass") >= 0 && forestActive)) {
-                            evolvingPokemon = event.target.src;
-                            evolvingPokemonNo = data.card.nationalPokedexNumber;
-                            $("#prompt").html("Which Pokemon would you like to evolve into " + data.card.name + "?");
-                            $(event.target).remove();
-                            evolvingPokemonName = data.card.name;
+                        if (discardHandVar == 0) {
+                            if (valid || (data.card.types.indexOf("Grass") >= 0 && forestActive)) {
+                                evolvingPokemon = event.target.src;
+                                evolvingPokemonNo = data.card.nationalPokedexNumber;
+                                $("#prompt").html("Which Pokemon would you like to evolve into " + data.card.name + "?");
+                                $(event.target).remove();
+                                evolvingPokemonName = data.card.name;
+                            }
+                            else
+                                alert("You can't evolve on this turn.");
                         }
                         else
-                            alert("You can't evolve on this turn.");
+                        {
+                            $(event.target).remove();
+                            $("#discard").append("<img src = '" + event.target.src + "' height='" + discardHeight + "'</img>");
+                            discardCount++;
+                        }
                     }
                     else if ($("#prompt").html().indexOf("discard") >= 0)
                     {
@@ -320,6 +337,8 @@ $(document).ready(function(){
                             vsseeker();
                         else if (data.card.name == "Roller Skates")
                             rollerskates();
+                        else if (data.card.name == "Acro Bike")
+                            acrobike();
                     }
                     else
                         discardHandVar++;

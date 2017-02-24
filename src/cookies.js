@@ -14,6 +14,7 @@ function parseCache(name)
     //deckIn.append(lines[i].toString());
 }
 
+
 var printCache = function(){
     for (var i = 0; i < localStorage.length; i++)
         $('#cookies').append("<div>" + localStorage.key(i) + "</div>");
@@ -38,4 +39,5 @@ function setCache(name) {
     //d.setTime(d.getTime() + (10*24*60*60*1000));
     //var expires = "expires="+ d.toUTCString();
     localStorage.setItem(name, cvalue);
+
 }

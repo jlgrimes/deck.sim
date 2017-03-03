@@ -4,7 +4,6 @@
     <list default="true" id="f5b5fe09-9faa-4d55-8e17-7256059541cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legality.html" afterPath="$PROJECT_DIR$/legality.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/reprints.js" afterPath="$PROJECT_DIR$/static/reprints.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,21 +65,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reprints.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reprints.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/reprints.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="836" column="28" selection-start-line="836" selection-start-column="28" selection-end-line="836" selection-end-column="28" />
+            <state relative-caret-position="17688">
+              <caret line="804" column="24" selection-start-line="804" selection-start-column="24" selection-end-line="804" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="legality.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="legality.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/legality.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+            <state relative-caret-position="264">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -183,8 +182,8 @@
         <option value="$PROJECT_DIR$/json/reprints.json" />
         <option value="$PROJECT_DIR$/xml/reprints.xml" />
         <option value="$PROJECT_DIR$/src/legality.js" />
-        <option value="$PROJECT_DIR$/legality.html" />
         <option value="$PROJECT_DIR$/static/reprints.js" />
+        <option value="$PROJECT_DIR$/legality.html" />
       </list>
     </option>
   </component>
@@ -752,14 +751,7 @@
       <workItem from="1487989321068" duration="745000" />
       <workItem from="1488389464550" duration="2859000" />
       <workItem from="1488483292429" duration="954000" />
-      <workItem from="1488500856513" duration="8531000" />
-    </task>
-    <task id="LOCAL-00001" summary="dank cookies added">
-      <created>1485443594150</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1485443594150</updated>
+      <workItem from="1488500856513" duration="8600000" />
     </task>
     <task id="LOCAL-00002" summary="fixing dank cookies">
       <created>1485454987758</created>
@@ -1097,11 +1089,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488555577130</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Finished legality!">
+      <created>1488570045847</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1488570045848</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167712000" />
+    <option name="totallyTimeSpent" value="167781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1160,7 +1159,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Full functionality for probability" />
     <MESSAGE value="changed test.html title" />
     <MESSAGE value="hides deckIn" />
     <MESSAGE value="probability calculated more than 7 basics... oops" />
@@ -1185,7 +1183,8 @@
     <MESSAGE value="flex box updates, etc." />
     <MESSAGE value="started acro bike, no duplicate cookies" />
     <MESSAGE value="Added base set through base set 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added base set through base set 2" />
+    <MESSAGE value="Finished legality!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished legality!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1490,18 +1489,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/legality.html">
+    <entry file="file://$PROJECT_DIR$/static/reprints.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+        <state relative-caret-position="17688">
+          <caret line="804" column="24" selection-start-line="804" selection-start-column="24" selection-end-line="804" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/reprints.js">
+    <entry file="file://$PROJECT_DIR$/legality.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="836" column="28" selection-start-line="836" selection-start-column="28" selection-end-line="836" selection-end-column="28" />
+        <state relative-caret-position="264">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
       </provider>
